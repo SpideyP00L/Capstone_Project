@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+// BMI Calculator
 class BMIData: ObservableObject {
     @Published var bmiValue: Double?
     @Published var bmiCategory: String?
 
+    // Finding The Weight Class after calculating
     func calculateBmiCategory() {
         if let bmi = bmiValue {
             if bmi < 18.5 {

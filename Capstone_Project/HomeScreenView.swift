@@ -38,11 +38,11 @@ struct HomeScreenView: View {
     var body: some View {
         ScrollView {
             VStack {
-                HStack {
+                HStack { // Hstack for Profile Image and Welcome Message with name
                     Spacer()
                     
-                    NavigationLink(destination: ProfileScreenView()) {
-                        Image("Spiderman")
+                    NavigationLink(destination: ProfileScreenView()) { // Navigation link to Profile Screen
+                        Image("Spiderman") // Profile Image
                             .resizable()
                             .scaledToFill()
                             .frame(width: 75, height: 75)
@@ -55,37 +55,43 @@ struct HomeScreenView: View {
                     
                     Spacer()
                     
+                    // Welcome Message with Name text
                     Text("Welcome, Spidey")
                         .font(.custom("Rockwell", size: 26))
                     
                     Spacer()
                 }
+                // Styling for Hstack
                 .padding(.horizontal)
                 
+                // Custom Bar Styling
                 Rectangle()
-                    .frame(height: 4)
+                    .frame(height: 4) // Change for Thickness
                     .foregroundColor(Color.black)
                     .padding(.top, 2.0)
                     .padding(.horizontal, 30)
                 
+                // Vstack For BMI Value and Category and Container Styling
                 VStack {
-                    HStack {
-                        Text("Your BMI:")
+                    HStack { // HStack for texts
+                        Text("Your BMI:") // BMI Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
 
                         let bmiValue = bmiData.bmiValue ?? 0
                         let bmiCategory = bmiData.bmiCategory ?? "Unknown"
 
-                        Text(String(format: "%.1f", bmiValue))
+                        Text(String(format: "%.1f", bmiValue)) // BMI Value with .1 decimal
                             .font(.custom("Rockwell", size: 30))
-                            .foregroundColor(getBMIColor(for: bmiValue))
+                            .foregroundColor(getBMIColor(for: bmiValue)) // changing the color based on BMI Value
 
-                        Text(bmiCategory)
+                        Text(bmiCategory) // BMI Weight Category
                             .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(getBMIColor(for: bmiValue))
+                            .foregroundColor(getBMIColor(for: bmiValue)) // changing the color based on BMI Value
                     }
                 }
+                
+                // Custom Styling for the BMI Container
                 .frame(maxWidth: 300, maxHeight: 150)
                 .padding()
                 .padding(.top, 60)
@@ -108,6 +114,7 @@ struct HomeScreenView: View {
                         .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                 )
                 
+                // BMI Text 
                 Text("What Does Your BMI Mean ?")
                     .padding(.top, 50.0)
                     .padding(.horizontal)

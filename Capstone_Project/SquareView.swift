@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Square View For Images
 struct SquareView: View {
     var image: Image
 

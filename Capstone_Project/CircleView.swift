@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Circle View for Images
 struct CircleView: View {
     var image: Image
     var width: CGFloat

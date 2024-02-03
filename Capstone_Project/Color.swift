@@ -9,6 +9,7 @@ import SwiftUI
 
 import SwiftUI
 
+// Custom Hex Color Class
 extension Color {
     init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)

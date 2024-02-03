@@ -189,31 +189,35 @@ struct BMIScreenView: View {
                 VStack(spacing: 10) {
                     
                     Spacer()
-                    
+                    // Age Text
                     Text("Age")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
+                    // HStack For Age Slider Value and kg Text
                     HStack {
-                        Text("\(Int(ageValue))")
+                        Text("\(Int(ageValue))") // Age Text
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("yrs")
+                        Text("yrs") // years Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
                     }
                     
+                    // Slider For Age
                     Slider(value: $ageValue, in: 0...100, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                     
                     Spacer()
                 }
+                
+                // Custom Styling for Age Container
                 .frame(maxWidth: 300, maxHeight: 150)
                 .padding()
                 .padding(.top, 20)
@@ -255,6 +259,8 @@ struct BMIScreenView: View {
             }
 
         }
+        
+        // Custom Styling For the whole screen
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "00FFFF"))
