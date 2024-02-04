@@ -51,6 +51,9 @@ struct HomeScreenView: View {
                                 Circle().stroke(.white, lineWidth: 2)
                             }
                             .shadow(radius: 10)
+                            .opacity(isAnimated ? 1.0 : 0.0)
+                            .transition(.opacity)
+                            .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                     }
                     
                     Spacer()
@@ -58,6 +61,9 @@ struct HomeScreenView: View {
                     // Welcome Message with Name text
                     Text("Welcome, Spidey")
                         .font(.custom("Rockwell", size: 26))
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .transition(.opacity)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                     
                     Spacer()
                 }
@@ -70,6 +76,9 @@ struct HomeScreenView: View {
                     .foregroundColor(Color.black)
                     .padding(.top, 2.0)
                     .padding(.horizontal, 30)
+                    .opacity(isAnimated ? 1.0 : 0.0)
+                    .transition(.opacity)
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 
                 // Vstack For BMI Value and Category and Container Styling
                 VStack {
@@ -97,7 +106,7 @@ struct HomeScreenView: View {
                 .padding(.top, 60)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -111,7 +120,7 @@ struct HomeScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 )
                 
                 // BMI Text 
@@ -122,99 +131,100 @@ struct HomeScreenView: View {
                     .foregroundColor(Color(hex: "0000FF"))
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 
                 
                 // Vstack For BMI Info and Container Styling
-                VStack {
-                    HStack { // HStack for Underweight texts
-                        Text("Less Than 18.5") // BMI value
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.leading)
+                NavigationLink(destination: BMIInfoScreenView()) {
+                    VStack {
+                        HStack { // HStack for Underweight texts
+                            Text("Less Than 18.5") // BMI value
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
 
-                        Spacer()
+                            Spacer()
+                            
+                            Text("Underweight") // Underweight Text
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.blue)
+                                .multilineTextAlignment(.trailing)
+                        }
                         
-                        Text("Underweight") // Underweight Text
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.blue)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    
-                    HStack { // HStack for texts
-                        Text("18.5 to 24.9") // BMI value
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.leading)
-                        
-                        Spacer()
-                        
-                        Text("Normal") // Normal Text
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.green)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    .padding(.top)
-                    
-                    HStack { // HStack for texts
-                        Text("25 to 29.9") // BMI value
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.leading)
-                        
-                        Spacer()
-                        
-                        Text("Overweight") // Overweight Text
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.yellow)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    .padding(.top)
-                    
-                    HStack { // HStack for texts
-                        Text("30 or above") // BMI value
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.black)
-                            .multilineTextAlignment(.leading)
-                        
-                        Spacer()
-                        
-                        Text("Obese") // Normal Text
-                            .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.red)
-                            .multilineTextAlignment(.trailing)
-                    }
-                    .padding(.top)
-                    
-                    Text("Click For More Info")
-                        .font(.custom("Rockwell", size: 20))
+                        HStack { // HStack for texts
+                            Text("18.5 to 24.9") // BMI value
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                            
+                            Spacer()
+                            
+                            Text("Normal") // Normal Text
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.green)
+                                .multilineTextAlignment(.trailing)
+                        }
                         .padding(.top)
-                        .foregroundColor(.gray)
+                        
+                        HStack { // HStack for texts
+                            Text("25 to 29.9") // BMI value
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                            
+                            Spacer()
+                            
+                            Text("Overweight") // Overweight Text
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.yellow)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        .padding(.top)
+                        
+                        HStack { // HStack for texts
+                            Text("30 or above") // BMI value
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.leading)
+                            
+                            Spacer()
+                            
+                            Text("Obese") // Normal Text
+                                .font(.custom("Rockwell", size: 20))
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.trailing)
+                        }
+                        .padding(.top)
+                        
+                        Text("Click For More Info")
+                            .font(.custom("Rockwell", size: 20))
+                            .padding(.top)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    // Custom Styling for the BMI Info Container
+                    .frame(maxWidth: 300, maxHeight: 500)
+                    .padding()
+                    .padding(.top, 60)
+                    .opacity(isAnimated ? 1.0 : 0.0)
+                    .transition(.opacity)
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.white)
+                            .frame(height: 280)
+                            .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
+                            .padding(.top, 60)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.white)
+                                    .padding(.top, 60)
+                            )
+                            .opacity(isAnimated ? 1.0 : 0.0)
+                            .transition(.opacity)
+                            .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    )
                 }
-                
-                // Custom Styling for the BMI Info Container
-                .frame(maxWidth: 300, maxHeight: 500)
-                .padding()
-                .padding(.top, 60)
-                .opacity(isAnimated ? 1.0 : 0.0)
-                .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.white)
-                        .frame(height: 280)
-                        .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
-                        .padding(.top, 60)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.white)
-                                .padding(.top, 60)
-                        )
-                        .opacity(isAnimated ? 1.0 : 0.0)
-                        .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
-                )
-                
                 
                 
                 .onAppear {
