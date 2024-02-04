@@ -102,7 +102,7 @@ struct HomeScreenView: View {
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
                         .frame(height: 100)
-                        .shadow(color: Color(hex: "adb5bd"), radius: 5, x: 5, y: 5)
+                        .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
                         .padding(.top, 60)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
@@ -123,6 +123,98 @@ struct HomeScreenView: View {
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                
+                
+                // Vstack For BMI Info and Container Styling
+                VStack {
+                    HStack { // HStack for Underweight texts
+                        Text("Less Than 18.5") // BMI value
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+
+                        Spacer()
+                        
+                        Text("Underweight") // Underweight Text
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.blue)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    
+                    HStack { // HStack for texts
+                        Text("18.5 to 24.9") // BMI value
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("Normal") // Normal Text
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.green)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    .padding(.top)
+                    
+                    HStack { // HStack for texts
+                        Text("25 to 29.9") // BMI value
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("Overweight") // Overweight Text
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.yellow)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    .padding(.top)
+                    
+                    HStack { // HStack for texts
+                        Text("30 or above") // BMI value
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                        
+                        Spacer()
+                        
+                        Text("Obese") // Normal Text
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.red)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    .padding(.top)
+                    
+                    Text("Click For More Info")
+                        .font(.custom("Rockwell", size: 20))
+                        .padding(.top)
+                        .foregroundColor(.gray)
+                }
+                
+                // Custom Styling for the BMI Info Container
+                .frame(maxWidth: 300, maxHeight: 500)
+                .padding()
+                .padding(.top, 60)
+                .opacity(isAnimated ? 1.0 : 0.0)
+                .transition(.opacity)
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .frame(height: 280)
+                        .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
+                        .padding(.top, 60)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white)
+                                .padding(.top, 60)
+                        )
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .transition(.opacity)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                )
+                
                 
                 
                 .onAppear {
