@@ -241,7 +241,7 @@ struct BMIScreenView: View {
                 
                 // NavigationLink to HomeScreenView
                 NavigationLink(destination: HomeScreenView(heightValue: heightValue, weightValue: weightValue, ageValue: ageValue)) {
-                    Text("Next")
+                    Text("Calculate")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)

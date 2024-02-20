@@ -55,7 +55,7 @@ struct ContentView: View {
 
                 // Add NavigationLink to BMIScreenView
                 NavigationLink(destination: BMIScreenView()) {
-                    Text("Login")
+                    Text("Next")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
