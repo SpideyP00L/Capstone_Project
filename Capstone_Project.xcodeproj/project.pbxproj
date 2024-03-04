@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		984AAF752B95696A00B994C9 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF742B95696A00B994C9 /* Tab.swift */; };
+		984AAF772B9569CD00B994C9 /* TabScreenBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF762B9569CD00B994C9 /* TabScreenBar.swift */; };
+		984AAF792B956A4000B994C9 /* TabPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF782B956A4000B994C9 /* TabPosition.swift */; };
+		984AAF7B2B956A6800B994C9 /* TabShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF7A2B956A6800B994C9 /* TabShape.swift */; };
+		984AAF7D2B956AD800B994C9 /* HeartMonitorScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF7C2B956AD800B994C9 /* HeartMonitorScreenView.swift */; };
+		984AAF7F2B958FAE00B994C9 /* UpdateBMIScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF7E2B958FAE00B994C9 /* UpdateBMIScreenView.swift */; };
+		984AAF812B95903900B994C9 /* SetGoalScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF802B95903900B994C9 /* SetGoalScreenView.swift */; };
+		984AAF832B95907B00B994C9 /* MealPlanScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */; };
+		984AAF852B9592F900B994C9 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984AAF842B9592F900B994C9 /* SharedData.swift */; };
 		9870462E2B6B1650004B74DA /* Capstone_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9870462D2B6B1650004B74DA /* Capstone_ProjectApp.swift */; };
 		987046302B6B1650004B74DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9870462F2B6B1650004B74DA /* ContentView.swift */; };
 		987046322B6B1651004B74DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987046312B6B1651004B74DA /* Assets.xcassets */; };
@@ -22,6 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		984AAF742B95696A00B994C9 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		984AAF762B9569CD00B994C9 /* TabScreenBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreenBar.swift; sourceTree = "<group>"; };
+		984AAF782B956A4000B994C9 /* TabPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabPosition.swift; sourceTree = "<group>"; };
+		984AAF7A2B956A6800B994C9 /* TabShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabShape.swift; sourceTree = "<group>"; };
+		984AAF7C2B956AD800B994C9 /* HeartMonitorScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartMonitorScreenView.swift; sourceTree = "<group>"; };
+		984AAF7E2B958FAE00B994C9 /* UpdateBMIScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBMIScreenView.swift; sourceTree = "<group>"; };
+		984AAF802B95903900B994C9 /* SetGoalScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGoalScreenView.swift; sourceTree = "<group>"; };
+		984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealPlanScreenView.swift; sourceTree = "<group>"; };
+		984AAF842B9592F900B994C9 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		9870462A2B6B1650004B74DA /* Capstone_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9870462D2B6B1650004B74DA /* Capstone_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capstone_ProjectApp.swift; sourceTree = "<group>"; };
 		9870462F2B6B1650004B74DA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +97,15 @@
 				987046412B6B596E004B74DA /* SquareView.swift */,
 				987046312B6B1651004B74DA /* Assets.xcassets */,
 				987046332B6B1651004B74DA /* Preview Content */,
+				984AAF742B95696A00B994C9 /* Tab.swift */,
+				984AAF762B9569CD00B994C9 /* TabScreenBar.swift */,
+				984AAF782B956A4000B994C9 /* TabPosition.swift */,
+				984AAF7A2B956A6800B994C9 /* TabShape.swift */,
+				984AAF7C2B956AD800B994C9 /* HeartMonitorScreenView.swift */,
+				984AAF7E2B958FAE00B994C9 /* UpdateBMIScreenView.swift */,
+				984AAF802B95903900B994C9 /* SetGoalScreenView.swift */,
+				984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */,
+				984AAF842B9592F900B994C9 /* SharedData.swift */,
 			);
 			path = Capstone_Project;
 			sourceTree = "<group>";
@@ -162,15 +189,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				9884C3732B6E091E001A395A /* BMIData.swift in Sources */,
+				984AAF7D2B956AD800B994C9 /* HeartMonitorScreenView.swift in Sources */,
+				984AAF772B9569CD00B994C9 /* TabScreenBar.swift in Sources */,
 				9870463C2B6B1746004B74DA /* CircleView.swift in Sources */,
 				987046402B6B3AB7004B74DA /* BMIScreenView.swift in Sources */,
 				98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */,
 				9870463E2B6B298D004B74DA /* Color.swift in Sources */,
+				984AAF792B956A4000B994C9 /* TabPosition.swift in Sources */,
+				984AAF752B95696A00B994C9 /* Tab.swift in Sources */,
 				987046422B6B596E004B74DA /* SquareView.swift in Sources */,
+				984AAF7F2B958FAE00B994C9 /* UpdateBMIScreenView.swift in Sources */,
 				987046302B6B1650004B74DA /* ContentView.swift in Sources */,
 				987046442B6B8A65004B74DA /* HomeScreenView.swift in Sources */,
+				984AAF812B95903900B994C9 /* SetGoalScreenView.swift in Sources */,
+				984AAF832B95907B00B994C9 /* MealPlanScreenView.swift in Sources */,
 				98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */,
+				984AAF852B9592F900B994C9 /* SharedData.swift in Sources */,
 				9870462E2B6B1650004B74DA /* Capstone_ProjectApp.swift in Sources */,
+				984AAF7B2B956A6800B994C9 /* TabShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

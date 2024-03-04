@@ -1,13 +1,13 @@
 //
-//  BMIScreenView.swift
+//  UpdateBMIScreenView.swift
 //  Capstone_Project
 //
-//  Created by Jeet Panchal on 2024-01-31.
+//  Created by Jeet Panchal on 2024-03-04.
 //
 
 import SwiftUI
 
-struct BMIScreenView: View {
+struct UpdateBMIScreenView: View {
     @State private var isAnimated = false
     @State private var heightValue: Double = 0
     @State private var weightValue: Double = 0
@@ -19,7 +19,7 @@ struct BMIScreenView: View {
         ScrollView {
             VStack {
                 // Title Text
-                Text("BMI Details")
+                Text("Update BMI")
                     .font(.custom("Rockwell", size: 30))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
@@ -40,52 +40,6 @@ struct BMIScreenView: View {
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
-                
-                HStack(spacing: 10) {
-                    // Male Image and Text
-                    VStack {
-                        
-                        // Male Icon Image
-                        SquareView(image: Image("Male"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-                        
-                        // Male Text
-                        Text("Male")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                    
-                    // Female Image and Text
-                    VStack {
-                        
-                        // Female Icon Image
-                        SquareView(image: Image("Female"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-
-                        // Female Text
-                        Text("Female")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                }
                 
                 // Height Container
                 VStack(spacing: 10) {
@@ -129,7 +83,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -142,7 +96,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 )
                 
                 // Weight Container
@@ -187,7 +141,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -200,7 +154,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 )
                 
                 // Age Container
@@ -244,7 +198,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -257,7 +211,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 )
                 
                 // NavigationLink to HomeScreenView
@@ -273,24 +227,17 @@ struct BMIScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3.0))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 }
-                
-                .padding()
             }
-
+            // Custom Styling For the whole screen
+            .padding(.bottom, 20)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.bottom)
         }
-        
-        // Custom Styling For the whole screen
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex: "00FFFF"))
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-struct BMIScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        BMIScreenView()
-    }
+#Preview {
+    UpdateBMIScreenView()
 }

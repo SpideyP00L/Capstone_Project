@@ -9,16 +9,14 @@ import SwiftUI
 
 struct HomeScreenView: View {
     @State private var isAnimated = false
-    let heightValue: Double
-    let weightValue: Double
-    let ageValue: Double
+    @ObservedObject var sharedData: SharedData
     
     @ObservedObject var bmiData = BMIData()
 
     // Function to calculate BMI
     private func calculateBMI() -> Double {
-        let heightInMeters = heightValue / 100
-        return weightValue / (heightInMeters * heightInMeters)
+        let heightInMeters = sharedData.heightValue / 100
+        return sharedData.weightValue / (heightInMeters * heightInMeters)
     }
 
     // Helper function to determine color based on BMI value
@@ -95,7 +93,7 @@ struct HomeScreenView: View {
                             .foregroundColor(getBMIColor(for: bmiValue)) // changing the color based on BMI Value
 
                         Text(bmiCategory) // BMI Weight Category
-                            .font(.custom("Rockwell", size: 20))
+                            .font(.custom("Rockwell", size: 16))
                             .foregroundColor(getBMIColor(for: bmiValue)) // changing the color based on BMI Value
                     }
                 }
@@ -243,6 +241,6 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(heightValue: 0, weightValue: 0, ageValue: 0)
+        HomeScreenView(sharedData: SharedData())
     }
 }

@@ -1,25 +1,24 @@
 //
-//  BMIScreenView.swift
+//  HeartMonitorScreenView.swift
 //  Capstone_Project
 //
-//  Created by Jeet Panchal on 2024-01-31.
+//  Created by Jeet Panchal on 2024-03-03.
 //
 
 import SwiftUI
 
-struct BMIScreenView: View {
+struct HeartMonitorScreenView: View {
     @State private var isAnimated = false
-    @State private var heightValue: Double = 0
-    @State private var weightValue: Double = 0
-    @State private var ageValue: Double = 0
-    @ObservedObject var sharedData: SharedData = SharedData()
-
+    @State private var bloodPressureValue: Double = 120
+    @State private var heartRateValue: Double = 75
+    @State private var cholestrolLevelValue: Double = 200
+    @State private var bloodSugarLevelValue: Double = 120
     
     var body: some View {
         ScrollView {
             VStack {
                 // Title Text
-                Text("BMI Details")
+                Text("Heart Monitor")
                     .font(.custom("Rockwell", size: 30))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
@@ -41,89 +40,95 @@ struct BMIScreenView: View {
                     .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                 
-                HStack(spacing: 10) {
-                    // Male Image and Text
-                    VStack {
-                        
-                        // Male Icon Image
-                        SquareView(image: Image("Male"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-                        
-                        // Male Text
-                        Text("Male")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                    
-                    // Female Image and Text
-                    VStack {
-                        
-                        // Female Icon Image
-                        SquareView(image: Image("Female"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-
-                        // Female Text
-                        Text("Female")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                }
-                
-                // Height Container
+                // Blood Pressure Input Container
                 VStack(spacing: 10) {
                     
                     Spacer()
                     
-                    // Height Text
-                    Text("Height")
+                    // Blood Pressure Text
+                    Text("Blood Pressure")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
-                    // HStack For Height Slider Value and cm Text
+                    // HStack For Blood Pressure Slider Value and mm/Hg Text
                     HStack {
-                        Text("\(Int(heightValue))") // Height Slider Value
+                        Text("\(Int(bloodPressureValue))") // Blood Pressure Slider Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("cm") // cm Text
+                        Text("mm/Hg") // mm/Hg Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
                     }
                     
-                    // Slider for Height
-                    Slider(value: $heightValue, in: 0...200, step: 1)
+                    // Slider for Blood Pressure
+                    Slider(value: $bloodPressureValue, in: 80...160, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
-                        .onChange(of: heightValue) { newValue in
-                                sharedData.heightValue = newValue
-                            }
                     
                     Spacer()
                 }
                 
-                // Custom Styling for Height Container
+                // Custom Styling for Blood Pressure Container
+                .frame(maxWidth: 300, maxHeight: 150)
+                .padding()
+                .padding(.top, 20)
+                .opacity(isAnimated ? 1.0 : 0.0)
+                .transition(.opacity)
+                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .background(
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.white, lineWidth: 5)
+                                .shadow(radius: 7)
+                                .padding(.top, 20)
+                        )
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .transition(.opacity)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                )
+                
+                // Heart Rate Input Container
+                VStack(spacing: 10) {
+                    
+                    Spacer()
+                    
+                    // Heart Rate Text
+                    Text("Heart Rate")
+                        .font(.custom("Rockwell", size: 20))
+                        .foregroundColor(.black)
+                        .padding(.bottom, 10)
+                    
+                    // HStack For Heart Rate Slider Value and cm Text
+                    HStack {
+                        Text("\(Int(heartRateValue))") // Heart Rate Slider Value
+                            .font(.custom("Rockwell", size: 30))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(hex: "C62FF8"))
+                            .animation(.none)
+                        
+                        Text("BPM") // cm Text
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                            .padding(.leading, 5)
+                    }
+                    
+                    // Slider for Heart Rate
+                    Slider(value: $heartRateValue, in: 0...150, step: 1)
+                        .padding(.horizontal, 20)
+                        .accentColor(Color(hex: "C62FF8"))
+                    
+                    Spacer()
+                }
+                
+                // Custom Styling for Heart Rate Container
                 .frame(maxWidth: 300, maxHeight: 150)
                 .padding()
                 .padding(.top, 20)
@@ -145,43 +150,40 @@ struct BMIScreenView: View {
                         .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 )
                 
-                // Weight Container
+                // Cholestrol Level Input Container
                 VStack(spacing: 10) {
                     
                     Spacer()
                     
-                    // Weight Text
-                    Text("Weight")
+                    // Cholestrol Level Text
+                    Text("Cholestrol Level")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
-                    // HStack For Weight Slider Value and kg Text
+                    // HStack For Cholestrol Level Slider Value and mg/dL Text
                     HStack {
-                        Text("\(Int(weightValue))") // Weight Slider Value
+                        Text("\(Int(cholestrolLevelValue))") // Cholestrol Level Slider Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("Kg") // kg Text
+                        Text("mg/dL") // mg/dL Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
                     }
                     
-                    // Slider For Weight
-                    Slider(value: $weightValue, in: 0...150, step: 1)
+                    // Slider for Cholestrol Level
+                    Slider(value: $cholestrolLevelValue, in: 160...260, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
-                        .onChange(of: weightValue) { newValue in
-                                sharedData.weightValue = newValue
-                            }
                     
                     Spacer()
                 }
                 
-                // Custom Styling For Weight Container
+                // Custom Styling for Cholestrol Level Container
                 .frame(maxWidth: 300, maxHeight: 150)
                 .padding()
                 .padding(.top, 20)
@@ -203,42 +205,40 @@ struct BMIScreenView: View {
                         .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 )
                 
-                // Age Container
+                // Blood Sugar Level Input Container
                 VStack(spacing: 10) {
                     
                     Spacer()
-                    // Age Text
-                    Text("Age")
+                    
+                    // Blood Sugar Text
+                    Text("Blood Sugar Level")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
-                    // HStack For Age Slider Value and kg Text
+                    // HStack For Blood Sugar Slider Value and mg/dL Text
                     HStack {
-                        Text("\(Int(ageValue))") // Age Text
+                        Text("\(Int(bloodSugarLevelValue))") // Blood Sugar Slider Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("yrs") // years Text
+                        Text("mg/dL") // mg/dL Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
                     }
                     
-                    // Slider For Age
-                    Slider(value: $ageValue, in: 0...100, step: 1)
+                    // Slider for Blood Pressure
+                    Slider(value: $bloodSugarLevelValue, in: 60...220, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
-                        .onChange(of: ageValue) { newValue in
-                                sharedData.ageValue = newValue
-                            }
                     
                     Spacer()
                 }
                 
-                // Custom Styling for Age Container
+                // Custom Styling for Blood Pressure Container
                 .frame(maxWidth: 300, maxHeight: 150)
                 .padding()
                 .padding(.top, 20)
@@ -259,38 +259,15 @@ struct BMIScreenView: View {
                         .transition(.opacity)
                         .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 )
-                
-                // NavigationLink to HomeScreenView
-                NavigationLink(destination: TabScreenBar(sharedData: sharedData)) {
-                    Text("Calculate")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 50)
-                        .padding()
-                        .background(Color(hex: "00008B"))
-                        .cornerRadius(50)
-                        .padding(.top, 20)
-                        .scaleEffect(isAnimated ? 1.0 : 0.0)
-                        .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3.0))
-                }
-                
-                .padding()
             }
-
+            // Custom Styling For the whole screen
+            .padding(.bottom, 20)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .edgesIgnoringSafeArea(.bottom)
         }
-        
-        // Custom Styling For the whole screen
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color(hex: "00FFFF"))
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-struct BMIScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        BMIScreenView()
-    }
+#Preview {
+    HeartMonitorScreenView()
 }
