@@ -28,6 +28,7 @@
 		9884C3732B6E091E001A395A /* BMIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884C3722B6E091E001A395A /* BMIData.swift */; };
 		98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */; };
 		98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */; };
+		B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		9884C3722B6E091E001A395A /* BMIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIData.swift; sourceTree = "<group>"; };
 		98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIInfoScreenView.swift; sourceTree = "<group>"; };
+		B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				984AAF802B95903900B994C9 /* SetGoalScreenView.swift */,
 				984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */,
 				984AAF842B9592F900B994C9 /* SharedData.swift */,
+				B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */,
 			);
 			path = Capstone_Project;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				987046402B6B3AB7004B74DA /* BMIScreenView.swift in Sources */,
 				98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */,
 				9870463E2B6B298D004B74DA /* Color.swift in Sources */,
+				B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */,
 				984AAF792B956A4000B994C9 /* TabPosition.swift in Sources */,
 				984AAF752B95696A00B994C9 /* Tab.swift in Sources */,
 				987046422B6B596E004B74DA /* SquareView.swift in Sources */,

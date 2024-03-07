@@ -9,10 +9,11 @@ import SwiftUI
 
 struct HeartMonitorScreenView: View {
     @State private var isAnimated = false
-    @State private var bloodPressureValue: Double = 120
-    @State private var heartRateValue: Double = 75
-    @State private var cholestrolLevelValue: Double = 200
-    @State private var bloodSugarLevelValue: Double = 120
+    @State private var bloodPressureValue: Double = 0
+    @State private var heartRateValue: Double = 0
+    @State private var cholestrolLevelValue: Double = 0
+    @State private var bloodSugarLevelValue: Double = 0
+    @ObservedObject var sharedData: SharedData = SharedData()
     
     var body: some View {
         ScrollView {
@@ -69,6 +70,9 @@ struct HeartMonitorScreenView: View {
                     Slider(value: $bloodPressureValue, in: 80...160, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
+                        .onChange(of: bloodPressureValue) { newValue in
+                                sharedData.bloodPressureValue = newValue
+                            }
                     
                     Spacer()
                 }
@@ -124,6 +128,9 @@ struct HeartMonitorScreenView: View {
                     Slider(value: $heartRateValue, in: 0...150, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
+                        .onChange(of: heartRateValue) { newValue in
+                                sharedData.heartRateValue = newValue
+                            }
                     
                     Spacer()
                 }
@@ -179,6 +186,9 @@ struct HeartMonitorScreenView: View {
                     Slider(value: $cholestrolLevelValue, in: 160...260, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
+                        .onChange(of: cholestrolLevelValue) { newValue in
+                                sharedData.cholestrolLevelValue = newValue
+                            }
                     
                     Spacer()
                 }
@@ -234,6 +244,9 @@ struct HeartMonitorScreenView: View {
                     Slider(value: $bloodSugarLevelValue, in: 60...220, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
+                        .onChange(of: bloodSugarLevelValue) { newValue in
+                                sharedData.bloodSugarLevelValue = newValue
+                            }
                     
                     Spacer()
                 }
@@ -259,11 +272,27 @@ struct HeartMonitorScreenView: View {
                         .transition(.opacity)
                         .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 )
+                
+                // NavigationLink to HomeScreenView
+                NavigationLink(destination: HeartConditionScreenView(sharedData: sharedData)) {
+                    Text("Calculate")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 50)
+                        .padding()
+                        .background(Color(hex: "00008B"))
+                        .cornerRadius(50)
+                        .padding(.top, 20)
+                        .scaleEffect(isAnimated ? 1.0 : 0.0)
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                }
+                // Custom Styling For the whole screen
+                .padding(.bottom, 20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .edgesIgnoringSafeArea(.bottom)
             }
-            // Custom Styling For the whole screen
-            .padding(.bottom, 20)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

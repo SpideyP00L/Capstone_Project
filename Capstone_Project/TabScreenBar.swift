@@ -29,7 +29,7 @@ struct TabScreenBar: View {
                         SetGoalScreenView()
                             .tag(Tab.setGoal)
 
-                        HeartMonitorScreenView()
+                        HeartMonitorScreenView(sharedData: sharedData)
                             .tag(Tab.heart)
                         
                         MealPlanScreenView()
