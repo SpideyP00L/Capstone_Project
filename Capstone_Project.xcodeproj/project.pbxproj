@@ -29,6 +29,7 @@
 		98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */; };
 		98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */; };
 		B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */; };
+		B0C2F24A2B99432D00215C6F /* HealthConditionTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIInfoScreenView.swift; sourceTree = "<group>"; };
 		B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionScreenView.swift; sourceTree = "<group>"; };
+		B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthConditionTipsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		987046212B6B1650004B74DA = {
 			isa = PBXGroup;
 			children = (
+				B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */,
 				9870462C2B6B1650004B74DA /* Capstone_Project */,
 				9870462B2B6B1650004B74DA /* Products */,
 			);
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C2F24A2B99432D00215C6F /* HealthConditionTipsView.swift in Sources */,
 				9884C3732B6E091E001A395A /* BMIData.swift in Sources */,
 				984AAF7D2B956AD800B994C9 /* HeartMonitorScreenView.swift in Sources */,
 				984AAF772B9569CD00B994C9 /* TabScreenBar.swift in Sources */,

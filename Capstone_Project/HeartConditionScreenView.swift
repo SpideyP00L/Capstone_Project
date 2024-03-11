@@ -188,15 +188,15 @@ struct HeartConditionScreenView: View {
                 VStack(spacing: 10) {
                     Spacer()
                     
-                    // Heart Rate Text
+                    // For Cholesterol level
                     Text("Colestetrol Level")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
-                    // HStack For heart Pressure
+                    // HStack For or Cholesterol level
                     HStack {
-                        Text("\(Int(sharedData.heartRateValue))") // Heart Rate Value
+                        Text("\(Int(sharedData.cholestrolLevelValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -212,7 +212,7 @@ struct HeartConditionScreenView: View {
                     
                     Spacer()
                 }
-                // Custom Styling for Heart Rate Container
+                // Custom Styling for Cholesterol level
                 .frame(maxWidth: 300, maxHeight: 500)
                 .padding()
                 .padding(.top, 20)
@@ -237,15 +237,15 @@ struct HeartConditionScreenView: View {
                 VStack(spacing: 10) {
                     Spacer()
                     
-                    // Heart Rate Text
+                    // for Blood Sugar Level
                     Text("Blood Suger Level")
                         .font(.custom("Rockwell", size: 20))
                         .foregroundColor(.black)
                         .padding(.bottom, 10)
                     
-                    // HStack For heart Pressure
+                    // HStack For for Blood Sugar Level
                     HStack {
-                        Text("\(Int(sharedData.heartRateValue))") // Heart Rate Value
+                        Text("\(Int(sharedData.bloodSugarLevelValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -261,7 +261,7 @@ struct HeartConditionScreenView: View {
                     
                     Spacer()
                 }
-                // Custom Styling for Heart Rate Container
+                // Custom Styling for Blood Sugar Level
                 .frame(maxWidth: 300, maxHeight: 500)
                 .padding()
                 .padding(.top, 20)
@@ -283,7 +283,23 @@ struct HeartConditionScreenView: View {
                         .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 )
 
-            
+                NavigationLink(destination: HealthConditionTipsView(sharedData: sharedData)) {
+                    Text("Heart Condition Tips")
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 50)
+                        .padding()
+                        .background(Color(hex: "00008B"))
+                        .cornerRadius(50)
+                        .padding(.top, 20)
+                        .scaleEffect(isAnimated ? 1.0 : 0.0)
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                }
+                .padding(.top, 20)
+                .navigationBarTitle("Heart Condition ")
+
                 
                 }
         }

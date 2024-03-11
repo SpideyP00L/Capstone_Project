@@ -183,7 +183,7 @@ struct HeartMonitorScreenView: View {
                     }
                     
                     // Slider for Cholestrol Level
-                    Slider(value: $cholestrolLevelValue, in: 160...260, step: 1)
+                    Slider(value: $cholestrolLevelValue, in: 50...260, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: cholestrolLevelValue) { newValue in
