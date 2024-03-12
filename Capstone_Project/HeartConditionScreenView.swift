@@ -14,7 +14,7 @@ struct HeartConditionScreenView: View {
     var bloodPressureStatus: String {
             let bloodPressure = sharedData.bloodPressureValue
             if bloodPressure > 140 {
-                return "Your blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor.our blood pressure is high. Please consult your doctor."
+                return "Your blood pressure is high. Please consult your doctor."
             } else if bloodPressure < 90 {
                 return "Your blood pressure is low. Please consult your doctor."
             } else {
@@ -79,11 +79,6 @@ struct HeartConditionScreenView: View {
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
-                
-                Text("Shared Data Blood Pressure Value: \(sharedData.bloodPressureValue)")
-                Text("Shared Data Heart Rate Value: \(sharedData.heartRateValue)")
-                Text("Shared Data Cholestrol Level Value: \(sharedData.cholestrolLevelValue)")
-                Text("Shared Data Blood Sugar Level Value: \(sharedData.bloodSugarLevelValue)")
                 
                 // Blood Pressure Container
                 VStack(spacing: 10) {
@@ -153,7 +148,7 @@ struct HeartConditionScreenView: View {
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("mm/Hg") // mm/Hg Text
+                        Text("BPM") // BPM Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
@@ -169,7 +164,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -182,7 +177,7 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 )
                 
                 VStack(spacing: 10) {
@@ -202,7 +197,7 @@ struct HeartConditionScreenView: View {
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("mm/Hg") // mm/Hg Text
+                        Text("mg/dL") // mg/dL Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
@@ -218,7 +213,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -231,7 +226,7 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 )
                 
                 VStack(spacing: 10) {
@@ -251,7 +246,7 @@ struct HeartConditionScreenView: View {
                             .foregroundColor(Color(hex: "C62FF8"))
                             .animation(.none)
                         
-                        Text("mm/Hg") // mm/Hg Text
+                        Text("mg/dL") // mg/dL Text
                             .font(.custom("Rockwell", size: 20))
                             .foregroundColor(.black)
                             .padding(.leading, 5)
@@ -267,7 +262,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -280,10 +275,10 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 )
 
-                NavigationLink(destination: HealthConditionTipsView(sharedData: sharedData)) {
+                NavigationLink(destination: HeartConditionTipsView(sharedData: sharedData)) {
                     Text("Heart Condition Tips")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -295,10 +290,9 @@ struct HeartConditionScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3))
                 }
                 .padding(.top, 20)
-                .navigationBarTitle("Heart Condition ")
 
                 
                 }

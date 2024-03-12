@@ -26,10 +26,10 @@
 		987046422B6B596E004B74DA /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987046412B6B596E004B74DA /* SquareView.swift */; };
 		987046442B6B8A65004B74DA /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987046432B6B8A65004B74DA /* HomeScreenView.swift */; };
 		9884C3732B6E091E001A395A /* BMIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884C3722B6E091E001A395A /* BMIData.swift */; };
+		9885494A2BA10B4D00C18DEA /* HeartConditionTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */; };
 		98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */; };
 		98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */; };
 		B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */; };
-		B0C2F24A2B99432D00215C6F /* HealthConditionTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +53,10 @@
 		987046412B6B596E004B74DA /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		987046432B6B8A65004B74DA /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		9884C3722B6E091E001A395A /* BMIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIData.swift; sourceTree = "<group>"; };
+		988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionTipsView.swift; sourceTree = "<group>"; };
 		98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIInfoScreenView.swift; sourceTree = "<group>"; };
 		B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionScreenView.swift; sourceTree = "<group>"; };
-		B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthConditionTipsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,6 @@
 		987046212B6B1650004B74DA = {
 			isa = PBXGroup;
 			children = (
-				B0C2F2492B99432D00215C6F /* HealthConditionTipsView.swift */,
 				9870462C2B6B1650004B74DA /* Capstone_Project */,
 				9870462B2B6B1650004B74DA /* Products */,
 			);
@@ -112,6 +111,7 @@
 				984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */,
 				984AAF842B9592F900B994C9 /* SharedData.swift */,
 				B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */,
+				988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */,
 			);
 			path = Capstone_Project;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C2F24A2B99432D00215C6F /* HealthConditionTipsView.swift in Sources */,
+				9885494A2BA10B4D00C18DEA /* HeartConditionTipsView.swift in Sources */,
 				9884C3732B6E091E001A395A /* BMIData.swift in Sources */,
 				984AAF7D2B956AD800B994C9 /* HeartMonitorScreenView.swift in Sources */,
 				984AAF772B9569CD00B994C9 /* TabScreenBar.swift in Sources */,
