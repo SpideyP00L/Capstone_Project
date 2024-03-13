@@ -1,3 +1,11 @@
+//
+//  SetGoalScreenView.swift
+//  Capstone_Project
+//
+//  Created by Jeet Panchal on 2024-03-04.
+//
+
+
 import SwiftUI
 
 struct Nutrient {
@@ -9,7 +17,7 @@ struct SetGoalScreenView: View {
     @State private var isAnimated = false
     
     @ObservedObject var sharedData: SharedData
-    
+    @ObservedObject var sharedGoalData: SharedGoalData
     @ObservedObject var bmiData = BMIData()
 
     // Function to calculate BMI
@@ -221,8 +229,8 @@ struct SetGoalScreenView: View {
                     .padding(.horizontal, 30)
                     .font(.custom("Rockwell", size: 20))
                     .foregroundColor(.black)
-                    .transition(.opacity)
                     .opacity(isAnimated ? 1.0 : 0.0)
+                    .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 
                 // Dropdown for selecting weight categories
@@ -234,6 +242,11 @@ struct SetGoalScreenView: View {
                             .padding(.vertical, 10)
                     }
                 }
+                .onChange(of: selectedWeightCategoryIndex) { newValue in
+                    sharedGoalData.selectedGoal = weightCategories[newValue]
+                }
+
+                
                 .frame(maxWidth: 250, maxHeight: 100)
                 .pickerStyle(MenuPickerStyle())
                 .padding()
@@ -286,7 +299,7 @@ struct SetGoalScreenView: View {
                                     Text(nutrient.value)
                                         .font(.custom("Rockwell", size: 16))
                                         .fontWeight(.semibold)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(getColorForSelectedCategory())
                                         .frame(maxWidth: .infinity, alignment: .trailing)
                                 }
                             }
@@ -295,13 +308,13 @@ struct SetGoalScreenView: View {
                     }
                 }
                 .padding(.top, 20)
-                .frame(maxWidth: 260, maxHeight: 600) // Apply frame to the VStack
+                .frame(maxWidth: 260, maxHeight: 600)
                 .padding()
                 .padding(.horizontal, 20)
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -314,10 +327,8 @@ struct SetGoalScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
                 )
-
-
 
                 Spacer()
             }
@@ -332,6 +343,6 @@ struct SetGoalScreenView: View {
 
 struct SetGoalScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        SetGoalScreenView(sharedData: SharedData())
+        SetGoalScreenView(sharedData: SharedData(), sharedGoalData: SharedGoalData())
     }
 }

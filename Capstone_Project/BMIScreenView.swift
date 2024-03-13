@@ -41,52 +41,6 @@ struct BMIScreenView: View {
                     .transition(.opacity)
                     .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                 
-                HStack(spacing: 10) {
-                    // Male Image and Text
-                    VStack {
-                        
-                        // Male Icon Image
-                        SquareView(image: Image("Male"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-                        
-                        // Male Text
-                        Text("Male")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                    
-                    // Female Image and Text
-                    VStack {
-                        
-                        // Female Icon Image
-                        SquareView(image: Image("Female"))
-                            .padding(.top, 50)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.4).delay(1))
-
-                        // Female Text
-                        Text("Female")
-                            .font(.custom("Rockwell", size: 30))
-                            .fontWeight(.semibold)
-                            .foregroundColor(.black)
-                            .padding(.top, 20)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(1))
-                    }
-                    .padding(.horizontal, 10.0)
-                }
-                
                 // Height Container
                 VStack(spacing: 10) {
                     
@@ -113,7 +67,7 @@ struct BMIScreenView: View {
                     }
                     
                     // Slider for Height
-                    Slider(value: $heightValue, in: 0...200, step: 1)
+                    Slider(value: $heightValue, in: 0...250, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: heightValue) { newValue in
@@ -129,7 +83,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -142,7 +96,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
                 )
                 
                 // Weight Container
@@ -171,7 +125,7 @@ struct BMIScreenView: View {
                     }
                     
                     // Slider For Weight
-                    Slider(value: $weightValue, in: 0...150, step: 1)
+                    Slider(value: $weightValue, in: 0...200, step: 1)
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: weightValue) { newValue in
@@ -187,7 +141,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -200,7 +154,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
                 )
                 
                 // Age Container
@@ -244,7 +198,7 @@ struct BMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -257,7 +211,7 @@ struct BMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
                 )
                 
                 // NavigationLink to HomeScreenView
@@ -273,7 +227,7 @@ struct BMIScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3.0))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
                 }
                 
                 .padding()

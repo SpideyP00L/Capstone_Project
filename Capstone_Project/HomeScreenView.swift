@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeScreenView: View {
     @State private var isAnimated = false
     @ObservedObject var sharedData: SharedData
-    
+    @ObservedObject var sharedGoalData: SharedGoalData
     @ObservedObject var bmiData = BMIData()
 
     // Function to calculate BMI
@@ -225,6 +225,53 @@ struct HomeScreenView: View {
                 }
                 
                 
+                // BMI Text
+                Text("Select Goal To Achieve")
+                    .padding(.top, 80.0)
+                    .padding(.horizontal)
+                    .font(.custom("Rockwell", size: 20))
+                    .foregroundColor(Color(hex: "0000FF"))
+                    .opacity(isAnimated ? 1.0 : 0.0)
+                    .transition(.opacity)
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                
+                // Vstack For Goal Selected and Container Styling
+                VStack {
+                    HStack { // HStack for texts
+                        Text("Goal :")
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+
+                        Text(sharedGoalData.selectedGoal)
+                            .font(.custom("Rockwell", size: 20))
+                            .foregroundColor(.black)
+                    }
+                }
+                
+                // Custom Styling for the Goal Container
+                .frame(maxWidth: 300, maxHeight: 800)
+                .padding()
+                .padding(.top, 40)
+                .opacity(isAnimated ? 1.0 : 0.0)
+                .transition(.opacity)
+                .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(.white)
+                        .frame(height: 100)
+                        .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
+                        .padding(.top, 40)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.white)
+                                .padding(.top, 40)
+                        )
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .transition(.opacity)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                )
+                
+                
                 .onAppear {
                     isAnimated = true
                 }
@@ -241,6 +288,6 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(sharedData: SharedData())
+        HomeScreenView(sharedData: SharedData(), sharedGoalData: SharedGoalData())
     }
 }
