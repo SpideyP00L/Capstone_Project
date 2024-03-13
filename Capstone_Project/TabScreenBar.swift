@@ -20,13 +20,13 @@ struct TabScreenBar: View {
     var body: some View {
         VStack(spacing: 0) {
                     TabView(selection: $activeTab) {
-                        HomeScreenView(sharedData: sharedData)
+                        HomeScreenView(sharedData: sharedData, bmiData: bmiData)
                             .tag(Tab.home)
 
                         UpdateBMIScreenView(sharedData: sharedData)
                             .tag(Tab.bmi)
 
-                        SetGoalScreenView()
+                        SetGoalScreenView(sharedData: sharedData, bmiData: bmiData)
                             .tag(Tab.setGoal)
 
                         HeartMonitorScreenView(sharedData: sharedData)
