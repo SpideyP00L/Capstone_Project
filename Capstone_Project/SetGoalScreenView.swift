@@ -52,6 +52,22 @@ struct SetGoalScreenView: View {
     @State private var selectedWeightCategoryIndex = 0
     let weightCategories = ["Select Goal         ", "Underweight         ", "Normal              ", "Overweight          ", "Obese               "]
     
+    // Function to determine color based on selected weight category
+        private func getColorForSelectedCategory() -> Color {
+            switch selectedWeightCategoryIndex {
+            case 1: // Underweight
+                return .blue
+            case 2: // Normal
+                return .green
+            case 3: // Overweight
+                return .yellow
+            case 4: // Obese
+                return .red
+            default: // Default color
+                return .black
+            }
+        }
+    
     let nutrientData: [[Nutrient]] = [
         [], // Select Goal
         [   // Underweight
@@ -229,10 +245,10 @@ struct SetGoalScreenView: View {
                 .animation(Animation.easeInOut(duration: 0.8).delay(3))
 
                 VStack {
-                    Text(self.weightCategories[self.selectedWeightCategoryIndex])
-                        .font(.custom("Rockwell", size: 22))
+                    Text("Goal Selected: \(self.weightCategories[self.selectedWeightCategoryIndex])")
+                        .font(.custom("Rockwell", size: 20))
                         .fontWeight(.bold)
-                        .foregroundColor(.black)
+                        .foregroundColor(getColorForSelectedCategory())
                         .multilineTextAlignment(.center)
                     
                     Spacer()
@@ -285,7 +301,7 @@ struct SetGoalScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -298,7 +314,7 @@ struct SetGoalScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
                 )
 
 
