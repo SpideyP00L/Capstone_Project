@@ -32,6 +32,22 @@ struct HomeScreenView: View {
             return .red
         }
     }
+    
+    private func getColorForSelectedGoal(_ goal: String) -> Color {
+        switch goal {
+        case "Underweight         ":
+            return .blue
+        case "Normal              ":
+            return .green
+        case "Overweight          ":
+            return .yellow
+        case "Obese               ":
+            return .red
+        default:
+            return .black
+        }
+    }
+
 
     var body: some View {
         ScrollView {
@@ -244,7 +260,7 @@ struct HomeScreenView: View {
 
                         Text(sharedGoalData.selectedGoal)
                             .font(.custom("Rockwell", size: 20))
-                            .foregroundColor(.black)
+                            .foregroundColor(getColorForSelectedGoal(sharedGoalData.selectedGoal))
                     }
                 }
                 

@@ -9,6 +9,4 @@ import SwiftUI
 
 class SharedGoalData: ObservableObject {
     @Published var selectedGoal: String = "No Goal Selected"
-    @Published var selectedNutrient: String = ""
-    @Published var selectedNutrientValue: String = ""
 }
