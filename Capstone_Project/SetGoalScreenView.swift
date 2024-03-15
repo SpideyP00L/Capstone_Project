@@ -15,6 +15,8 @@ struct Nutrient {
 
 struct SetGoalScreenView: View {
     @State private var isAnimated = false
+    @State private var showingPopup = false
+    @State private var popupResult: Bool?
     
     @ObservedObject var sharedData: SharedData
     @ObservedObject var sharedGoalData: SharedGoalData
@@ -242,9 +244,9 @@ struct SetGoalScreenView: View {
                             .padding(.vertical, 10)
                     }
                 }
-                .onChange(of: selectedWeightCategoryIndex) { newValue in
+                /*.onChange(of: selectedWeightCategoryIndex) { newValue in
                     sharedGoalData.selectedGoal = weightCategories[newValue]
-                }
+                }*/
 
                 
                 .frame(maxWidth: 250, maxHeight: 100)
@@ -329,6 +331,29 @@ struct SetGoalScreenView: View {
                         .transition(.opacity)
                         .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
                 )
+                
+                // Button to save the value
+                Button(action: {
+                    showingPopup = true
+                    }) {
+                        Text("Save Selected Goal")
+                            .font(.custom("Rockwell", size: 18))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 18)
+                            .background(Color.blue)
+                            .cornerRadius(40)
+                    }
+                    .padding(.top, 40)
+                    .padding(.bottom, 30)
+                    .alert(isPresented: $showingPopup) {
+                        Alert(title: Text("Confirmation"), message: Text("Do You Want To Proceed With The Selected Goal :   \(self.weightCategories[self.selectedWeightCategoryIndex].uppercased())?"), primaryButton: .default(Text("Yes")) {
+                                sharedGoalData.selectedGoal = weightCategories[selectedWeightCategoryIndex]
+                                popupResult = true
+                        }, secondaryButton: .cancel(Text("No")) {
+                                popupResult = false
+                        })
+                    }
 
                 Spacer()
             }
