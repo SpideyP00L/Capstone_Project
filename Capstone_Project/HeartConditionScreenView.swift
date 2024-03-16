@@ -9,10 +9,13 @@ import SwiftUI
 
 struct HeartConditionScreenView: View {
     @State private var isAnimated = false
+    @ObservedObject var sharedHeartData: SharedHeartData
     @ObservedObject var sharedData: SharedData
+    @ObservedObject var sharedGoalData: SharedGoalData
+    @ObservedObject var bmiData = BMIData()
     
     var bloodPressureStatus: String {
-            let bloodPressure = sharedData.bloodPressureValue
+            let bloodPressure = sharedHeartData.bloodPressureValue
             if bloodPressure > 140 {
                 return "Your blood pressure is high. Please consult your doctor."
             } else if bloodPressure < 90 {
@@ -22,7 +25,7 @@ struct HeartConditionScreenView: View {
             }
         }
     var heartRateStatus: String {
-            let heartRate = sharedData.heartRateValue
+            let heartRate = sharedHeartData.heartRateValue
             if heartRate > 100 {
                 return "Your heart rate is high. Please consult your doctor."
             } else if heartRate < 60 {
@@ -32,7 +35,7 @@ struct HeartConditionScreenView: View {
             }
         }
     var cholesterolStatus: String {
-        let cholesterol = sharedData.cholestrolLevelValue
+        let cholesterol = sharedHeartData.cholestrolLevelValue
         if cholesterol > 200 {
             return "Your cholesterol level is high. Please consult your doctor."
         } else if cholesterol < 100 {
@@ -43,7 +46,7 @@ struct HeartConditionScreenView: View {
     }
     
     var sugarLevelStatus: String {
-        let sugarLevel = sharedData.bloodSugarLevelValue
+        let sugarLevel = sharedHeartData.bloodSugarLevelValue
         if sugarLevel > 140 {
             return "Your blood sugar level is high. Please consult your doctor."
         } else if sugarLevel < 70 {
@@ -78,7 +81,7 @@ struct HeartConditionScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Blood Pressure Container
                 VStack(spacing: 10) {
@@ -93,7 +96,7 @@ struct HeartConditionScreenView: View {
                     
                     // HStack For Blood Pressure
                     HStack {
-                        Text("\(Int(sharedData.bloodPressureValue))") // Height Slider Value
+                        Text("\(Int(sharedHeartData.bloodPressureValue))") // Height Slider Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -116,7 +119,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -129,7 +132,7 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 )
                 VStack(spacing: 10) {
                     Spacer()
@@ -142,7 +145,7 @@ struct HeartConditionScreenView: View {
                     
                     // HStack For heart Pressure
                     HStack {
-                        Text("\(Int(sharedData.heartRateValue))") // Heart Rate Value
+                        Text("\(Int(sharedHeartData.heartRateValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -164,7 +167,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -177,7 +180,7 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 )
                 
                 VStack(spacing: 10) {
@@ -191,7 +194,7 @@ struct HeartConditionScreenView: View {
                     
                     // HStack For or Cholesterol level
                     HStack {
-                        Text("\(Int(sharedData.cholestrolLevelValue))") // Heart Rate Value
+                        Text("\(Int(sharedHeartData.cholestrolLevelValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -213,7 +216,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -226,7 +229,7 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 )
                 
                 VStack(spacing: 10) {
@@ -240,7 +243,7 @@ struct HeartConditionScreenView: View {
                     
                     // HStack For for Blood Sugar Level
                     HStack {
-                        Text("\(Int(sharedData.bloodSugarLevelValue))") // Heart Rate Value
+                        Text("\(Int(sharedHeartData.bloodSugarLevelValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -262,7 +265,7 @@ struct HeartConditionScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -275,10 +278,10 @@ struct HeartConditionScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 )
 
-                NavigationLink(destination: HeartConditionTipsView(sharedData: sharedData)) {
+                NavigationLink(destination: HeartConditionTipsView(sharedHeartData: sharedHeartData, sharedData: sharedData, sharedGoalData: sharedGoalData)) {
                     Text("Heart Condition Tips")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -290,7 +293,7 @@ struct HeartConditionScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                 }
                 .padding(.top, 20)
 
@@ -301,5 +304,5 @@ struct HeartConditionScreenView: View {
 }
 
 #Preview {
-    HeartConditionScreenView(sharedData: SharedData())
+    HeartConditionScreenView(sharedHeartData: SharedHeartData(), sharedData: SharedData(), sharedGoalData: SharedGoalData())
 }

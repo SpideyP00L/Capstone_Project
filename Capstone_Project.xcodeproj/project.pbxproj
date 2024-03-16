@@ -29,6 +29,7 @@
 		9885494A2BA10B4D00C18DEA /* HeartConditionTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */; };
 		98AC0A762BA2373C006E0064 /* SharedGoalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC0A752BA2373C006E0064 /* SharedGoalData.swift */; };
 		98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */; };
+		98CCA9FF2BA64BBF0081A703 /* SharedHeartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */; };
 		98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */; };
 		B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,7 @@
 		988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionTipsView.swift; sourceTree = "<group>"; };
 		98AC0A752BA2373C006E0064 /* SharedGoalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoalData.swift; sourceTree = "<group>"; };
 		98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
+		98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHeartData.swift; sourceTree = "<group>"; };
 		98F404C72B6F654F006D2C6B /* BMIInfoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIInfoScreenView.swift; sourceTree = "<group>"; };
 		B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 				984AAF802B95903900B994C9 /* SetGoalScreenView.swift */,
 				984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */,
 				984AAF842B9592F900B994C9 /* SharedData.swift */,
+				98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */,
 				98AC0A752BA2373C006E0064 /* SharedGoalData.swift */,
 				B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */,
 				988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */,
@@ -205,6 +208,7 @@
 				987046402B6B3AB7004B74DA /* BMIScreenView.swift in Sources */,
 				98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */,
 				9870463E2B6B298D004B74DA /* Color.swift in Sources */,
+				98CCA9FF2BA64BBF0081A703 /* SharedHeartData.swift in Sources */,
 				B0C2F2482B99269800215C6F /* HeartConditionScreenView.swift in Sources */,
 				984AAF792B956A4000B994C9 /* TabPosition.swift in Sources */,
 				984AAF752B95696A00B994C9 /* Tab.swift in Sources */,

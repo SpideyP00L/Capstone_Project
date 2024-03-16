@@ -34,7 +34,7 @@ struct MealPlanScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
             }
         }
     }

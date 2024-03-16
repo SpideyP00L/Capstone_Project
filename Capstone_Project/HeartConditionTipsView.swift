@@ -10,10 +10,13 @@ import SwiftUI
 struct HeartConditionTipsView: View {
     
     @State private var isAnimated = false
+    @ObservedObject var sharedHeartData: SharedHeartData
     @ObservedObject var sharedData: SharedData
+    @ObservedObject var sharedGoalData: SharedGoalData
+    @ObservedObject var bmiData = BMIData()
     
     var bloodPressureTips: (String, Color) {
-            let bloodPressure = sharedData.bloodPressureValue
+            let bloodPressure = sharedHeartData.bloodPressureValue
             if bloodPressure > 140 {
                 return ("Try to maintain your blood pressure under 140/90 mmHg to reduce the risk of heart diseases. Keep track of your blood pressure, maintain a healthy lifestyle with a balanced diet, regular exercise, and weight management. Avoid smoking and excessive alcohol, manage stress, take prescribed medications, and regularly visit your healthcare provider for check-ups and adjustments.", .red)
             } else if bloodPressure < 90 {
@@ -24,7 +27,7 @@ struct HeartConditionTipsView: View {
         }
     
     var bloodPressureStatus: String {
-        let bloodPressure = sharedData.bloodPressureValue
+        let bloodPressure = sharedHeartData.bloodPressureValue
         if bloodPressure > 140 {
             return "High"
         } else if bloodPressure < 90 {
@@ -35,7 +38,7 @@ struct HeartConditionTipsView: View {
     }
     
     var heartRateTips: (String, Color) {
-            let heartRate = sharedData.heartRateValue
+            let heartRate = sharedHeartData.heartRateValue
             if heartRate > 100 {
                 return ("Engage in aerobic exercises like walking, jogging, or swimming to improve heart health and lower your heart rate. For a heart rate above 100, focus on a balanced diet rich in fruits, vegetables, whole grains, lean proteins (such as poultry, fish, beans, and tofu), healthy fats (like avocados, nuts, and olive oil), and omega-3 fatty acids from sources like fatty fish. Hydration is crucial, so drink plenty of water. Minimize processed foods, control salt intake, and consider consulting a dietitian for personalized recommendations.", .red)
             } else if heartRate < 60 {
@@ -46,7 +49,7 @@ struct HeartConditionTipsView: View {
         }
     
     var heartRateStatus: String {
-        let heartRate = sharedData.heartRateValue
+        let heartRate = sharedHeartData.heartRateValue
         if heartRate > 100 {
             return "High"
         } else if heartRate < 60 {
@@ -57,7 +60,7 @@ struct HeartConditionTipsView: View {
     }
     
     var cholesterolTips: (String, Color) {
-        let cholesterol = sharedData.cholestrolLevelValue
+        let cholesterol = sharedHeartData.cholestrolLevelValue
         if cholesterol > 200 {
             return ("Follow a low-fat, low-cholesterol diet rich in fruits, vegetables, and whole grains to manage cholesterol levels.Monitor cholesterol levels regularly, focus on a diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats, while limiting saturated and trans fats. Increase intake of soluble fiber, choose low-fat dairy, limit cholesterol-rich foods, exercise regularly, maintain a healthy weight, avoid smoking, limit alcohol, and consult a healthcare provider for personalized guidance.", .red)
         } else if cholesterol < 100 {
@@ -68,7 +71,7 @@ struct HeartConditionTipsView: View {
     }
     
     var cholestrolLevelStatus: String {
-        let cholestrolLevel = sharedData.cholestrolLevelValue
+        let cholestrolLevel = sharedHeartData.cholestrolLevelValue
         if cholestrolLevel > 200 {
             return "High"
         } else if cholestrolLevel < 100 {
@@ -79,7 +82,7 @@ struct HeartConditionTipsView: View {
     }
     
     var sugarLevelTips: (String, Color) {
-        let sugarLevel = sharedData.bloodSugarLevelValue
+        let sugarLevel = sharedHeartData.bloodSugarLevelValue
         if sugarLevel > 140 {
             return ("Keep track of your blood sugar levels regularly. For managing blood sugar levels above 140, focus on incorporating non-starchy vegetables, whole grains, lean proteins, healthy fats, berries, citrus fruits, nuts, seeds, legumes, and cinnamon into your diet. Stay hydrated with water. Avoid sugary foods and refined carbohydrates. Consult your doctor for appropriate management strategies.", .red)
         } else if sugarLevel < 70 {
@@ -90,7 +93,7 @@ struct HeartConditionTipsView: View {
     }
     
     var sugarLevelStatus: String {
-        let sugarLevel = sharedData.bloodSugarLevelValue
+        let sugarLevel = sharedHeartData.bloodSugarLevelValue
         if sugarLevel > 140 {
             return "High"
         } else if sugarLevel < 70 {
@@ -123,7 +126,7 @@ struct HeartConditionTipsView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Blood Pressure Container
                 VStack(spacing: 10) {
@@ -137,7 +140,7 @@ struct HeartConditionTipsView: View {
                     
                     // HStack For Blood Pressure
                     HStack {
-                        Text("\(Int(sharedData.bloodPressureValue))") // Height Slider Value
+                        Text("\(Int(sharedHeartData.bloodPressureValue))") // Height Slider Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -162,7 +165,7 @@ struct HeartConditionTipsView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -175,7 +178,7 @@ struct HeartConditionTipsView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 )
                 
                 // Heart Rate Container
@@ -190,7 +193,7 @@ struct HeartConditionTipsView: View {
                     
                     // HStack For heart Pressure
                     HStack {
-                        Text("\(Int(sharedData.heartRateValue))") // Heart Rate Value
+                        Text("\(Int(sharedHeartData.heartRateValue))") // Heart Rate Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -213,7 +216,7 @@ struct HeartConditionTipsView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -226,7 +229,7 @@ struct HeartConditionTipsView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 )
                 
                 // Cholestrol Level Container
@@ -241,7 +244,7 @@ struct HeartConditionTipsView: View {
                     
                     // HStack For Cholestrol Level
                     HStack {
-                        Text("\(Int(sharedData.cholestrolLevelValue))") // Cholestrol Level Value
+                        Text("\(Int(sharedHeartData.cholestrolLevelValue))") // Cholestrol Level Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -264,7 +267,7 @@ struct HeartConditionTipsView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -277,7 +280,7 @@ struct HeartConditionTipsView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 )
                 
                 // Blood Sugar Level Container
@@ -292,7 +295,7 @@ struct HeartConditionTipsView: View {
                     
                     // HStack For heart Pressure
                     HStack {
-                        Text("\(Int(sharedData.bloodSugarLevelValue))") // Blood Sugar Level Value
+                        Text("\(Int(sharedHeartData.bloodSugarLevelValue))") // Blood Sugar Level Value
                             .font(.custom("Rockwell", size: 30))
                             .fontWeight(.semibold)
                             .foregroundColor(Color(hex: "C62FF8"))
@@ -315,7 +318,7 @@ struct HeartConditionTipsView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -328,11 +331,11 @@ struct HeartConditionTipsView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 )
                 
                 // NavigationLink to HomeScreenView
-                NavigationLink(destination: TabScreenBar(sharedData: sharedData)) {
+                NavigationLink(destination: TabScreenBar(sharedData: sharedData, sharedGoalData: sharedGoalData, sharedHeartData: sharedHeartData)) {
                     Text("Back To Home")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -344,7 +347,7 @@ struct HeartConditionTipsView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                 }
                 
             }
@@ -353,5 +356,5 @@ struct HeartConditionTipsView: View {
 }
 
 #Preview {
-    HeartConditionTipsView(sharedData: SharedData())
+    HeartConditionTipsView(sharedHeartData: SharedHeartData(), sharedData: SharedData(), sharedGoalData: SharedGoalData())
 }

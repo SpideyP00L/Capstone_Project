@@ -34,7 +34,7 @@ struct BMIInfoScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Custom Image Styling For Consistent Look
                 Image("BMI") // Image name
@@ -43,7 +43,7 @@ struct BMIInfoScreenView: View {
                     .frame(width: 350, height: 250)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1.0))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1.0), value: isAnimated)
                 
                 // BMI Info Text
                 Text("\(Text("Body Mass Index").bold()) is referred to as \(Text("BMI.").bold()) It is a metric used to determine if a person \(Text("weighs a healthy amount given their height.").bold()) BMI is determined by taking the square of an individual's height in meters and multiplying it by their weight in kilograms \(Text("(weight (kg) / height (m)^2).").bold())")
@@ -53,7 +53,7 @@ struct BMIInfoScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 
                 // BMI Info Text
                 Text("Because it can indicate whether a person is \(Text("underweight, normal weight, overweight, or obese, BMI is significant.").bold()) Although it isn't a \(Text("perfect indicator of body fatness or general health").bold()), it can be a helpful screening tool to find probable \(Text("health issues linked to weight.").bold())")
@@ -63,7 +63,7 @@ struct BMIInfoScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 
                 // BMI Underweight Title Text
                 Text("Underweight: BMI less than 18.5")
@@ -71,14 +71,14 @@ struct BMIInfoScreenView: View {
                     .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                     .padding(.top, 30)
                 
                 // BMI Underweight Info Text
                 Text("\(Text("Health implications:").bold()) Increased risk of \(Text("nutrient deficiencies, weakened immune system, osteoporosis, fertility issues, and other health problems.").bold())")
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                     .padding(.top, 10)
                     .padding(.horizontal, 30)
                 
@@ -88,14 +88,14 @@ struct BMIInfoScreenView: View {
                     .foregroundColor(.green)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                     .padding(.top, 30)
                 
                 // BMI Normal weight Info Text
                 Text("\(Text("Health implications:").bold()) Generally lower risk of weight-related health issues such as \(Text("heart disease,").bold()) \(Text("type 2 diabetes,").bold()) and \(Text("certain cancers.").bold())")
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                     .padding(.top, 10)
                     .padding(.horizontal, 30)
                 
@@ -105,14 +105,14 @@ struct BMIInfoScreenView: View {
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .foregroundColor(.yellow)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3.5), value: isAnimated)
                     .padding(.top, 30)
                 
                 // BMI Overweight Info Text
                 Text("\(Text("Health implications:").bold()) Increased risk of \(Text("heart disease,").bold()) \(Text("type 2 diabetes,").bold()) \(Text("high blood pressure,").bold()) \(Text("stroke,").bold()) \(Text("certain cancers,").bold()) \(Text("sleep apnea,").bold()) and other \(Text("health problems.").bold())")
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(3.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3.5), value: isAnimated)
                     .padding(.top, 10)
                     .padding(.horizontal, 30)
                 
@@ -122,14 +122,14 @@ struct BMIInfoScreenView: View {
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .foregroundColor(.red)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(4))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(4), value: isAnimated)
                     .padding(.top, 30)
                 
                 // BMI Obese Info Text
                 Text("\(Text("Health implications:").bold()) Significant increase in the risk of \(Text("heart disease,").bold()) \(Text("stroke,").bold()) \(Text("type 2 diabetes,").bold()) \(Text("high blood pressure,").bold()) \(Text("certain cancers (such as breast, colon, and prostate),").bold()) \(Text("sleep apnea,").bold()) \(Text("osteoarthritis,").bold()) and other \(Text("health problems.").bold())")
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(4))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(4), value: isAnimated)
                     .padding(.top, 10)
                     .padding(.horizontal, 30)
                 
@@ -141,19 +141,9 @@ struct BMIInfoScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(4.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(4.5), value: isAnimated)
             }
         }
-    }
-}
-
-struct TextHighlighter: View {
-    var text: String
-    var color: Color
-
-    var body: some View {
-        Text(text)
-            .foregroundColor(color)
     }
 }
 

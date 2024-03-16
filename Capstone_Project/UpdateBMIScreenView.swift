@@ -39,7 +39,7 @@ struct UpdateBMIScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Height Container
                 VStack(spacing: 10) {
@@ -83,7 +83,7 @@ struct UpdateBMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -96,7 +96,7 @@ struct UpdateBMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 )
                 
                 // Weight Container
@@ -141,7 +141,7 @@ struct UpdateBMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -154,7 +154,7 @@ struct UpdateBMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 )
                 
                 // Age Container
@@ -198,7 +198,7 @@ struct UpdateBMIScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -211,7 +211,7 @@ struct UpdateBMIScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 )
                 
                 // NavigationLink to HomeScreenView
@@ -227,7 +227,7 @@ struct UpdateBMIScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 }
             }
             // Custom Styling For the whole screen

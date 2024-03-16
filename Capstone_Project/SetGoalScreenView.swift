@@ -138,7 +138,7 @@ struct SetGoalScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Vstack For BMI Value and Category and Container Styling
                 VStack {
@@ -166,7 +166,7 @@ struct SetGoalScreenView: View {
                 .padding(.top, 60)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -180,7 +180,7 @@ struct SetGoalScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 )
                 
                 // Recommend Goal to Achieve Text with animation and custom styling
@@ -192,7 +192,7 @@ struct SetGoalScreenView: View {
                     .foregroundColor(.black)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
 
                 // Vstack for Custom Recommend Goal based on the user's BMI
                 VStack {
@@ -207,7 +207,7 @@ struct SetGoalScreenView: View {
                 .padding(.top, 30)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -221,7 +221,7 @@ struct SetGoalScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 )
                 
                 // Recommend Goal to Achieve Text with animation and custom styling
@@ -233,7 +233,7 @@ struct SetGoalScreenView: View {
                     .foregroundColor(.black)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 
                 // Dropdown for selecting weight categories
                 Picker(selection: $selectedWeightCategoryIndex, label: Text("Select a Category")) {
@@ -257,7 +257,7 @@ struct SetGoalScreenView: View {
                 .shadow(color: Color(hex: "D3D3D3"), radius: 5, x: 5, y: 5)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
 
                 VStack {
                     Text("Goal Selected: \(self.weightCategories[self.selectedWeightCategoryIndex])")
@@ -316,7 +316,7 @@ struct SetGoalScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -329,7 +329,7 @@ struct SetGoalScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                 )
                 
                 // Button to save the value

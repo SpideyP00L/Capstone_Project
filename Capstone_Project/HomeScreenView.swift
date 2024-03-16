@@ -11,6 +11,7 @@ struct HomeScreenView: View {
     @State private var isAnimated = false
     @ObservedObject var sharedData: SharedData
     @ObservedObject var sharedGoalData: SharedGoalData
+    @ObservedObject var sharedHeartData: SharedHeartData
     @ObservedObject var bmiData = BMIData()
 
     // Function to calculate BMI
@@ -117,7 +118,7 @@ struct HomeScreenView: View {
                             .shadow(radius: 10)
                             .opacity(isAnimated ? 1.0 : 0.0)
                             .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                            .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                     }
                     
                     Spacer()
@@ -127,7 +128,7 @@ struct HomeScreenView: View {
                         .font(.custom("Rockwell", size: 26))
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                     
                     Spacer()
                 }
@@ -142,7 +143,7 @@ struct HomeScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 
                 // Vstack For BMI Value and Category and Container Styling
                 VStack {
@@ -170,7 +171,7 @@ struct HomeScreenView: View {
                 .padding(.top, 60)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .foregroundColor(.white)
@@ -184,7 +185,7 @@ struct HomeScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 )
                 
                 // BMI Text 
@@ -195,7 +196,7 @@ struct HomeScreenView: View {
                     .foregroundColor(Color(hex: "0000FF"))
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 
                 
                 // Vstack For BMI Info and Container Styling
@@ -272,7 +273,7 @@ struct HomeScreenView: View {
                     .padding(.top, 60)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                     .background(
                         RoundedRectangle(cornerRadius: 20)
                             .foregroundColor(.white)
@@ -286,7 +287,7 @@ struct HomeScreenView: View {
                             )
                             .opacity(isAnimated ? 1.0 : 0.0)
                             .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                            .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                     )
                 }
                 
@@ -299,7 +300,7 @@ struct HomeScreenView: View {
                     .foregroundColor(Color(hex: "0000FF"))
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(3))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(3), value: isAnimated)
                 
                 // Vstack For Goal Selected and Container Styling
                 VStack {
@@ -359,7 +360,7 @@ struct HomeScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(3.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -373,7 +374,7 @@ struct HomeScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(0.1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(3.5), value: isAnimated)
                 )
                 
                 .padding(.bottom, 80)
@@ -394,6 +395,6 @@ struct HomeScreenView: View {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView(sharedData: SharedData(), sharedGoalData: SharedGoalData())
+        HomeScreenView(sharedData: SharedData(), sharedGoalData: SharedGoalData(), sharedHeartData: SharedHeartData())
     }
 }

@@ -13,7 +13,10 @@ struct HeartMonitorScreenView: View {
     @State private var heartRateValue: Double = 0
     @State private var cholestrolLevelValue: Double = 0
     @State private var bloodSugarLevelValue: Double = 0
-    @ObservedObject var sharedData: SharedData = SharedData()
+    @ObservedObject var sharedHeartData: SharedHeartData
+    @ObservedObject var sharedData: SharedData
+    @ObservedObject var sharedGoalData: SharedGoalData
+    @ObservedObject var bmiData = BMIData()
     
     var body: some View {
         ScrollView {
@@ -39,7 +42,7 @@ struct HeartMonitorScreenView: View {
                     .padding(.horizontal, 30)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
                 
                 // Blood Pressure Input Container
                 VStack(spacing: 10) {
@@ -71,7 +74,7 @@ struct HeartMonitorScreenView: View {
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: bloodPressureValue) { newValue in
-                                sharedData.bloodPressureValue = newValue
+                                sharedHeartData.bloodPressureValue = newValue
                             }
                     
                     Spacer()
@@ -83,7 +86,7 @@ struct HeartMonitorScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -96,7 +99,7 @@ struct HeartMonitorScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1), value: isAnimated)
                 )
                 
                 // Heart Rate Input Container
@@ -129,7 +132,7 @@ struct HeartMonitorScreenView: View {
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: heartRateValue) { newValue in
-                                sharedData.heartRateValue = newValue
+                                sharedHeartData.heartRateValue = newValue
                             }
                     
                     Spacer()
@@ -141,7 +144,7 @@ struct HeartMonitorScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -154,7 +157,7 @@ struct HeartMonitorScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
                 )
                 
                 // Cholestrol Level Input Container
@@ -187,7 +190,7 @@ struct HeartMonitorScreenView: View {
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: cholestrolLevelValue) { newValue in
-                                sharedData.cholestrolLevelValue = newValue
+                                sharedHeartData.cholestrolLevelValue = newValue
                             }
                     
                     Spacer()
@@ -199,7 +202,7 @@ struct HeartMonitorScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -212,7 +215,7 @@ struct HeartMonitorScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2), value: isAnimated)
                 )
                 
                 // Blood Sugar Level Input Container
@@ -245,7 +248,7 @@ struct HeartMonitorScreenView: View {
                         .padding(.horizontal, 20)
                         .accentColor(Color(hex: "C62FF8"))
                         .onChange(of: bloodSugarLevelValue) { newValue in
-                                sharedData.bloodSugarLevelValue = newValue
+                                sharedHeartData.bloodSugarLevelValue = newValue
                             }
                     
                     Spacer()
@@ -257,7 +260,7 @@ struct HeartMonitorScreenView: View {
                 .padding(.top, 20)
                 .opacity(isAnimated ? 1.0 : 0.0)
                 .transition(.opacity)
-                .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 .background(
                     RoundedRectangle(cornerRadius: 30)
                         .foregroundColor(.white)
@@ -270,11 +273,11 @@ struct HeartMonitorScreenView: View {
                         )
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 )
                 
                 // NavigationLink to HomeScreenView
-                NavigationLink(destination: HeartConditionScreenView(sharedData: sharedData)) {
+                NavigationLink(destination: HeartConditionScreenView(sharedHeartData: sharedHeartData, sharedData: sharedData, sharedGoalData: sharedGoalData)) {
                     Text("Calculate")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
@@ -286,7 +289,7 @@ struct HeartMonitorScreenView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.5), value: isAnimated)
                 }
                 // Custom Styling For the whole screen
                 .padding(.bottom, 20)
@@ -298,5 +301,5 @@ struct HeartMonitorScreenView: View {
 }
 
 #Preview {
-    HeartMonitorScreenView()
+    HeartMonitorScreenView(sharedHeartData: SharedHeartData(), sharedData: SharedData(), sharedGoalData: SharedGoalData())
 }

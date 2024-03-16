@@ -31,7 +31,7 @@ struct ContentView: View {
                     .padding(.top, 40)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
 
                 // Short Message On Life Pulse
                 Text("Elevate your well-being with BMI tracking, personalized meal plans, and real-time heart monitoring. Your journey to a healthier, happier you starts here.")
@@ -41,7 +41,7 @@ struct ContentView: View {
                     .padding([.top, .leading, .trailing])
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1.0))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1.0), value: isAnimated)
 
                 // Slogan For Life Pulse
                 Text("Pulse to Prosperity: Nourish Your Body, Know Your Heart with Life Pulse.")
@@ -51,7 +51,7 @@ struct ContentView: View {
                     .padding(.top)
                     .opacity(isAnimated ? 1.0 : 0.0)
                     .transition(.opacity)
-                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5))
+                    .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
 
                 // Add NavigationLink to BMIScreenView
                 NavigationLink(destination: BMIScreenView()) {
@@ -66,7 +66,7 @@ struct ContentView: View {
                         .padding(.top, 20)
                         .scaleEffect(isAnimated ? 1.0 : 0.0)
                         .opacity(isAnimated ? 1.0 : 0.0)
-                        .animation(Animation.easeInOut(duration: 0.8).delay(2.0))
+                        .animation(Animation.easeInOut(duration: 0.8).delay(2.0), value: isAnimated)
                 }
 
             }

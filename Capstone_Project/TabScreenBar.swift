@@ -14,6 +14,7 @@ struct TabScreenBar: View {
     @ObservedObject var sharedData: SharedData = SharedData()
     @ObservedObject var bmiData = BMIData()
     @ObservedObject var sharedGoalData = SharedGoalData()
+    @ObservedObject var sharedHeartData = SharedHeartData()
     
     // Smooth Shape Sliding Effect
     @Namespace private var animation
@@ -21,7 +22,7 @@ struct TabScreenBar: View {
     var body: some View {
         VStack(spacing: 0) {
                     TabView(selection: $activeTab) {
-                        HomeScreenView(sharedData: sharedData, sharedGoalData: sharedGoalData, bmiData: bmiData)
+                        HomeScreenView(sharedData: sharedData, sharedGoalData: sharedGoalData, sharedHeartData: sharedHeartData, bmiData: bmiData)
                             .tag(Tab.home)
 
                         UpdateBMIScreenView(sharedData: sharedData)
@@ -30,7 +31,7 @@ struct TabScreenBar: View {
                         SetGoalScreenView(sharedData: sharedData, sharedGoalData: sharedGoalData, bmiData: bmiData)
                             .tag(Tab.setGoal)
 
-                        HeartMonitorScreenView(sharedData: sharedData)
+                        HeartMonitorScreenView(sharedHeartData: sharedHeartData, sharedData: sharedData, sharedGoalData: sharedGoalData, bmiData: bmiData)
                             .tag(Tab.heart)
                         
                         MealPlanScreenView()
