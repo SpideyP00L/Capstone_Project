@@ -27,6 +27,11 @@
 		987046442B6B8A65004B74DA /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987046432B6B8A65004B74DA /* HomeScreenView.swift */; };
 		9884C3732B6E091E001A395A /* BMIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884C3722B6E091E001A395A /* BMIData.swift */; };
 		9885494A2BA10B4D00C18DEA /* HeartConditionTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */; };
+		98A915E72BAFB213004F676D /* mealData.json in Resources */ = {isa = PBXBuildFile; fileRef = 98A915E62BAFB213004F676D /* mealData.json */; };
+		98A915E92BAFB371004F676D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A915E82BAFB371004F676D /* ModelData.swift */; };
+		98A915EB2BAFB47C004F676D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A915EA2BAFB47C004F676D /* Meal.swift */; };
+		98A915ED2BAFD0F5004F676D /* MealsListDetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A915EC2BAFD0F5004F676D /* MealsListDetailScreenView.swift */; };
+		98A915EF2BAFD84E004F676D /* MealListRowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A915EE2BAFD84E004F676D /* MealListRowScreenView.swift */; };
 		98AC0A762BA2373C006E0064 /* SharedGoalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC0A752BA2373C006E0064 /* SharedGoalData.swift */; };
 		98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */; };
 		98CCA9FF2BA64BBF0081A703 /* SharedHeartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */; };
@@ -56,6 +61,11 @@
 		987046432B6B8A65004B74DA /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		9884C3722B6E091E001A395A /* BMIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIData.swift; sourceTree = "<group>"; };
 		988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartConditionTipsView.swift; sourceTree = "<group>"; };
+		98A915E62BAFB213004F676D /* mealData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mealData.json; sourceTree = "<group>"; };
+		98A915E82BAFB371004F676D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		98A915EA2BAFB47C004F676D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		98A915EC2BAFD0F5004F676D /* MealsListDetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListDetailScreenView.swift; sourceTree = "<group>"; };
+		98A915EE2BAFD84E004F676D /* MealListRowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListRowScreenView.swift; sourceTree = "<group>"; };
 		98AC0A752BA2373C006E0064 /* SharedGoalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGoalData.swift; sourceTree = "<group>"; };
 		98ACB21E2B6CBD3000522836 /* ProfileScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenView.swift; sourceTree = "<group>"; };
 		98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHeartData.swift; sourceTree = "<group>"; };
@@ -113,11 +123,16 @@
 				984AAF7E2B958FAE00B994C9 /* UpdateBMIScreenView.swift */,
 				984AAF802B95903900B994C9 /* SetGoalScreenView.swift */,
 				984AAF822B95907B00B994C9 /* MealPlanScreenView.swift */,
+				98A915EC2BAFD0F5004F676D /* MealsListDetailScreenView.swift */,
+				98A915EE2BAFD84E004F676D /* MealListRowScreenView.swift */,
 				984AAF842B9592F900B994C9 /* SharedData.swift */,
 				98CCA9FE2BA64BBF0081A703 /* SharedHeartData.swift */,
 				98AC0A752BA2373C006E0064 /* SharedGoalData.swift */,
 				B0C2F2472B99269800215C6F /* HeartConditionScreenView.swift */,
 				988549492BA10B4D00C18DEA /* HeartConditionTipsView.swift */,
+				98A915E62BAFB213004F676D /* mealData.json */,
+				98A915E82BAFB371004F676D /* ModelData.swift */,
+				98A915EA2BAFB47C004F676D /* Meal.swift */,
 			);
 			path = Capstone_Project;
 			sourceTree = "<group>";
@@ -190,6 +205,7 @@
 			files = (
 				987046352B6B1651004B74DA /* Preview Assets.xcassets in Resources */,
 				987046322B6B1651004B74DA /* Assets.xcassets in Resources */,
+				98A915E72BAFB213004F676D /* mealData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,10 +217,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9885494A2BA10B4D00C18DEA /* HeartConditionTipsView.swift in Sources */,
+				98A915EB2BAFB47C004F676D /* Meal.swift in Sources */,
 				9884C3732B6E091E001A395A /* BMIData.swift in Sources */,
 				984AAF7D2B956AD800B994C9 /* HeartMonitorScreenView.swift in Sources */,
 				984AAF772B9569CD00B994C9 /* TabScreenBar.swift in Sources */,
 				9870463C2B6B1746004B74DA /* CircleView.swift in Sources */,
+				98A915E92BAFB371004F676D /* ModelData.swift in Sources */,
 				987046402B6B3AB7004B74DA /* BMIScreenView.swift in Sources */,
 				98F404C82B6F654F006D2C6B /* BMIInfoScreenView.swift in Sources */,
 				9870463E2B6B298D004B74DA /* Color.swift in Sources */,
@@ -216,9 +234,11 @@
 				984AAF7F2B958FAE00B994C9 /* UpdateBMIScreenView.swift in Sources */,
 				987046302B6B1650004B74DA /* ContentView.swift in Sources */,
 				987046442B6B8A65004B74DA /* HomeScreenView.swift in Sources */,
+				98A915ED2BAFD0F5004F676D /* MealsListDetailScreenView.swift in Sources */,
 				984AAF812B95903900B994C9 /* SetGoalScreenView.swift in Sources */,
 				984AAF832B95907B00B994C9 /* MealPlanScreenView.swift in Sources */,
 				98ACB21F2B6CBD3000522836 /* ProfileScreenView.swift in Sources */,
+				98A915EF2BAFD84E004F676D /* MealListRowScreenView.swift in Sources */,
 				984AAF852B9592F900B994C9 /* SharedData.swift in Sources */,
 				98AC0A762BA2373C006E0064 /* SharedGoalData.swift in Sources */,
 				9870462E2B6B1650004B74DA /* Capstone_ProjectApp.swift in Sources */,
