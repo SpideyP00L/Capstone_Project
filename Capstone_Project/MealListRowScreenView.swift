@@ -10,6 +10,19 @@ import SwiftUI
 struct MealListRowScreenView: View {
     var meallist: Meal
     
+    func categoryColor(for category: String) -> Color {
+           switch category.lowercased() {
+           case "veg":
+               return .green
+           case "non-veg":
+               return .red
+           case "vegan":
+               return .green
+           default:
+               return .black
+           }
+       }
+    
     var body: some View {
         HStack {
             meallist.image
@@ -27,18 +40,15 @@ struct MealListRowScreenView: View {
                     .font(.headline)
                     .multilineTextAlignment(.center)
                 
-                HStack {
-                    Text(meallist.category.uppercased())
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+                Text(meallist.category.uppercased())
+                    .font(.headline)
+                    .foregroundColor(categoryColor(for: meallist.category))
                     .multilineTextAlignment(.trailing)
                     
-                    Text("Rating: \(String(format: "%.2f", meallist.rating))")
-                        .font(.subheadline)
-                        .foregroundColor(.blue)
-                        .multilineTextAlignment(.trailing)
-                }
-                    
+                Text("Rating: \(String(format: "%.2f", meallist.rating))")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .multilineTextAlignment(.trailing)
             }
             
             if meallist.favorite {
