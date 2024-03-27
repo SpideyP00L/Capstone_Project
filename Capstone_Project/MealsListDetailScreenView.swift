@@ -15,6 +15,19 @@ struct MealsListDetailScreenView: View {
             modelData.meals.firstIndex(where: { $0.id == meallist.id })!
         }
     
+    func mealCategoryColor(for category: String) -> Color {
+           switch category.lowercased() {
+           case "veg":
+               return .green
+           case "non-veg":
+               return .red
+           case "vegan":
+               return .green
+           default:
+               return .black
+           }
+       }
+    
     var body: some View {
         @Bindable var modelData = modelData
         ScrollView {
@@ -40,15 +53,20 @@ struct MealsListDetailScreenView: View {
                         .padding(.top, 20)
                 }
                 
-                Text(meallist.countryName)
-                    .font(.headline)
-                    .padding(.top, 10)
+                HStack {
+                    Text("Country :")
+                    
+                    Text(meallist.countryName)
+                    
+                }
+                .padding(.top, 10)
+                .font(.title3)
+                .bold()
                 
                 Text("Category: \(meallist.category.uppercased())")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .font(.headline)
+                    .foregroundColor(mealCategoryColor(for: meallist.category))
                     .padding(.top, 5)
-                    .bold()
                 
                 Text("Rating: \(String(format: "%.2f", meallist.rating))")
                     .font(.subheadline)

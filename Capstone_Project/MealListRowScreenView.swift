@@ -31,6 +31,8 @@ struct MealListRowScreenView: View {
                 .frame(width: 80, height: 80)
                 .padding()
             
+            Spacer()
+            
             VStack() {
                 Text(meallist.meal_name)
                     .font(.headline)
@@ -50,6 +52,8 @@ struct MealListRowScreenView: View {
                     .foregroundColor(.blue)
                     .multilineTextAlignment(.trailing)
             }
+            
+            Spacer()
             
             if meallist.favorite {
                 Image(systemName: "star.fill")
