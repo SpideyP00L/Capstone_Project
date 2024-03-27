@@ -51,7 +51,7 @@ struct MealPlanScreenView: View {
                         
                         Text("\n\(Text("Dinner:").bold()) Finish your day with a \(Text("satisfying meal").bold()) that includes \(Text("lean protein, whole grains or starchy vegetables, and a variety of colorful vegetables.").bold().foregroundColor(Color(hex: "007200")))")
                         
-                        Text("\n\(Text("Hydration:").bold()) Throughout the day, prioritize staying \(Text("hydrated by drinking plenty of water.").bold().foregroundColor(Color(hex: "007200"))) You can also include \(Text("herbal teas or infused water for variety.").bold())")
+                        Text("\n\(Text("Hydration:").bold().foregroundColor(.blue)) Throughout the day, prioritize staying \(Text("hydrated by drinking plenty of water.").bold().foregroundColor(.blue)) You can also include \(Text("herbal teas or infused water for variety.").bold().foregroundColor(.blue))")
                     }
                     .foregroundColor(.black)
                     .padding(.top, 20)

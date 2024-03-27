@@ -14,7 +14,9 @@ struct MealListRowScreenView: View {
         HStack {
             meallist.image
                 .resizable()
-                .frame(width: 50, height: 50)
+                .clipShape(Circle())
+                .frame(width: 80, height: 80)
+                .padding()
                 
             Spacer()
             

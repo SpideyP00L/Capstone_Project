@@ -13,14 +13,14 @@ struct MealsListDetailScreenView: View {
     var body: some View {
         ScrollView {
             VStack {
+                
                 meallist.image
                     .resizable()
                     .frame(width: 250, height: 250)
                     .scaledToFill()
-                    .padding(.top, 100)
                     .clipShape(Circle())
                     .overlay {
-                        Circle().stroke(.white, lineWidth: 2)
+                        Circle().stroke(.white, lineWidth: 4.5)
                     }
                     .shadow(radius: 10)
                 
@@ -39,7 +39,7 @@ struct MealsListDetailScreenView: View {
                     .padding(.top, 5)
                     .bold()
                 
-                Text("Rating: \(meallist.rating)")
+                Text("Rating: \(String(format: "%.2f", meallist.rating))")
                     .font(.subheadline)
                     .foregroundColor(.blue)
                     .padding(.top, 5)
