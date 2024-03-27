@@ -9,8 +9,14 @@ import SwiftUI
 
 struct MealsListDetailScreenView: View {
     var meallist: Meal
+    @Environment(ModelData.self) var modelData
+    
+    var mealIndex: Int {
+            modelData.meals.firstIndex(where: { $0.id == meallist.id })!
+        }
     
     var body: some View {
+        @Bindable var modelData = modelData
         ScrollView {
             VStack {
                 
@@ -24,10 +30,15 @@ struct MealsListDetailScreenView: View {
                     }
                     .shadow(radius: 10)
                 
-                Text(meallist.meal_name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.top, 20)
+                HStack {
+                    Text(meallist.meal_name)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.top, 20)
+                    
+                    FavoriteButton(isSet: $modelData.meals[mealIndex].favorite)
+                        .padding(.top, 20)
+                }
                 
                 Text(meallist.countryName)
                     .font(.headline)
@@ -69,8 +80,8 @@ struct MealsListDetailScreenView: View {
     }
 }
 
-struct MealsListDetailScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        MealsListDetailScreenView(meallist: meals[0])
-    }
+#Preview {
+    let modelData = ModelData()
+    return MealsListDetailScreenView(meallist: modelData.meals[0])
+        .environment(modelData)
 }

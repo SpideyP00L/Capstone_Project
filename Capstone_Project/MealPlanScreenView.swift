@@ -9,6 +9,14 @@ import SwiftUI
 
 struct MealPlanScreenView: View {
     @State private var isAnimated = false
+    @Environment(ModelData.self) var modelData
+    @State private var showFavoritesOnly = false
+
+    var filteredMeals: [Meal] {
+        modelData.meals.filter { mealList in
+            (!showFavoritesOnly || mealList.favorite)
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -82,13 +90,20 @@ struct MealPlanScreenView: View {
                     
                     // List Navigation
                     NavigationLink {
-                        List(meals) { meallist in
-                            NavigationLink {
-                                MealsListDetailScreenView(meallist: meallist)
-                            } label: {
-                                MealListRowScreenView(meallist: meallist)
+                        List {
+                            Toggle(isOn: $showFavoritesOnly) {
+                                Text("Favorite Meals only")
+                            }
+                            
+                            ForEach(filteredMeals) { meallist in
+                                NavigationLink {
+                                    MealsListDetailScreenView(meallist: meallist)
+                                } label: {
+                                    MealListRowScreenView(meallist: meallist)
+                                }
                             }
                         }
+                        .animation(.default, value: filteredMeals)
                         .navigationBarTitle("Meal List", displayMode: .large)
                     } label: {
                         Text("Select a Meal")
@@ -98,6 +113,7 @@ struct MealPlanScreenView: View {
                             .padding(.horizontal, 50)
                             .background(Color.blue)
                             .cornerRadius(50)
+                            .environment(ModelData())
                     }
                     .padding(.top, 70)
                     .padding(.bottom, 40)
@@ -110,5 +126,6 @@ struct MealPlanScreenView: View {
 struct MealPlanScreenView_Previews: PreviewProvider {
     static var previews: some View {
         MealPlanScreenView()
+            .environment(ModelData())
     }
 }

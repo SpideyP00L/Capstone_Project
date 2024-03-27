@@ -24,6 +24,8 @@ struct Meal: Hashable, Codable, Identifiable {
     var fiber: String
     var calcium: String
     var iron: String
+    var favorite: Bool
+    
     
     private var imageName: String
     var image: Image {

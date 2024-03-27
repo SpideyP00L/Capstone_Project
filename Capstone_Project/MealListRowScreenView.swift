@@ -17,8 +17,6 @@ struct MealListRowScreenView: View {
                 .clipShape(Circle())
                 .frame(width: 80, height: 80)
                 .padding()
-                
-            Spacer()
             
             VStack() {
                 Text(meallist.meal_name)
@@ -42,12 +40,19 @@ struct MealListRowScreenView: View {
                 }
                     
             }
+            
+            if meallist.favorite {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.yellow)
+            }
+            
         }
     }
 }
 
 #Preview {
-    Group {
+    let meals = ModelData().meals
+    return Group {
         MealListRowScreenView(meallist: meals[0])
         MealListRowScreenView(meallist: meals[1])
     }

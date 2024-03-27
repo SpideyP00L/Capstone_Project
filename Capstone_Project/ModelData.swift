@@ -7,8 +7,10 @@
 
 import Foundation
 
-var meals: [Meal] = load("mealData.json")
-
+@Observable
+class ModelData {
+    var meals: [Meal] = load("mealData.json")
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
