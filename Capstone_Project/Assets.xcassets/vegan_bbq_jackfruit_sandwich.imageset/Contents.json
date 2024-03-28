@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "vegan_bbq_jackfruit_sandwich.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "vegan_bbq_jackfruit_sandwich 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "vegan_bbq_jackfruit_sandwich 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

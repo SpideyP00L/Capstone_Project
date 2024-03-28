@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "vegetarian_maple_baked_beans.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "vegetarian_maple_baked_beans 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "vegetarian_maple_baked_beans 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

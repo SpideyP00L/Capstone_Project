@@ -25,7 +25,7 @@ struct MealsListDetailScreenView: View {
            case "vegan":
                return .green
            default:
-               return .black
+               return .blue
            }
        }
     
@@ -66,19 +66,18 @@ struct MealsListDetailScreenView: View {
                     
                 }
                 .padding(.top, 10)
-                .font(.title3)
+                .font(.title2)
                 
                 HStack {
-                    Text("Category: \(meallist.category.uppercased())")
-                        .font(.headline)
+                    Text("\(Text("Category: ").foregroundColor(.black))\(meallist.category.uppercased())")
                         .foregroundColor(mealCategoryColor(for: meallist.category))
-                        .padding(.top, 5)
                     
-                    Text("Rating: \(String(format: "%.2f", meallist.rating))")
-                        .font(.headline)
+                    Text("\(Text("Rating: ").foregroundColor(.black))\(String(format: "%.2f", meallist.rating))")
                         .foregroundColor(.blue)
-                        .padding(.top, 5)
                 }
+                .font(.title3)
+                .bold()
+                .padding(.top, 5)
                 
                 VStack {
                     HStack {
@@ -100,7 +99,7 @@ struct MealsListDetailScreenView: View {
                             .bold()
                         
                         Image(systemName: "dumbbell")
-                            .foregroundColor(.blue)
+                            .foregroundColor(mealCategoryColor(for: meallist.category))
                     }
                     .font(.title3)
                     .padding(.top, 20)
@@ -108,32 +107,33 @@ struct MealsListDetailScreenView: View {
                     HStack {
                                                 
                         VStack(alignment: .leading, spacing: 5) {
-                            Text("Protein: \(meallist.protein)")
+                            Text("\(Text("Protein: ").foregroundColor(.black))\(meallist.protein)")
                             
-                            Text("Carbohydrates: \(meallist.carbohydrates)")
+                            Text("\(Text("Carbohydrates: ").foregroundColor(.black))\(meallist.carbohydrates)")
                             
-                            Text("Calcium: \(meallist.calcium)")
+                            Text("\(Text("Calcium: ").foregroundColor(.black))\(meallist.calcium)")
                         }
                                                 
                         VStack(alignment: .trailing, spacing: 5) {
-                            Text("Fiber: \(meallist.fiber)")
+                            Text("\(Text("Fiber: ").foregroundColor(.black))\(meallist.fiber)")
                             
-                            Text("Fat: \(meallist.fat)")
+                            Text("\(Text("Fat: ").foregroundColor(.black))\(meallist.fat)")
                             
-                            Text("Iron: \(meallist.iron)")
+                            Text("\(Text("Iron: ").foregroundColor(.black))\(meallist.iron)")
                         }
                                                 
                     }
                     .padding(.top, 5)
                     .font(.subheadline)
                     .bold()
+                    .foregroundColor(mealCategoryColor(for: meallist.category))
                     
                     HStack {
                         Text("Cooking Items : ")
                             .bold()
                             
                         Image(systemName: "fork.knife.circle")
-                            .foregroundColor(.blue)
+                            .foregroundColor(mealCategoryColor(for: meallist.category))
                             .font(.system(size: 22))
                     }
                     .font(.title3)
@@ -162,7 +162,7 @@ struct MealsListDetailScreenView: View {
                             .bold()
                             
                         Image(systemName: "frying.pan")
-                            .foregroundColor(.blue)
+                            .foregroundColor(mealCategoryColor(for: meallist.category))
                             .font(.system(size: 22))
                     }
                     .font(.title3)
@@ -173,7 +173,7 @@ struct MealsListDetailScreenView: View {
                         .padding(.top, 5)
                 }
                 .padding(.top, 20)
-                .frame(maxWidth: 260, maxHeight: 900)
+                .frame(maxWidth: 260, maxHeight: 1600)
                 .padding()
                 .padding(.horizontal, 20)
                 .padding(.top, 20)

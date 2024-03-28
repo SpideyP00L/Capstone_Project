@@ -92,7 +92,8 @@ struct MealPlanScreenView: View {
                     NavigationLink {
                         List {
                             Toggle(isOn: $showFavoritesOnly) {
-                                Text("Favorite Meals only")
+                                Text("Favorite / Featured Meals")
+                                    .bold()
                             }
                             
                             ForEach(filteredMeals) { meallist in

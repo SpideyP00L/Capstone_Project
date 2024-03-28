@@ -28,6 +28,7 @@ struct MealListRowScreenView: View {
             meallist.image
                 .resizable()
                 .clipShape(Circle())
+                .scaledToFill()
                 .frame(width: 80, height: 80)
                 .padding()
             
