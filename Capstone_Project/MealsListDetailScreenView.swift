@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MealsListDetailScreenView: View {
     var meallist: Meal
+    
     @Environment(ModelData.self) var modelData
     
     var mealIndex: Int {
@@ -55,45 +56,145 @@ struct MealsListDetailScreenView: View {
                 
                 HStack {
                     Text("Country :")
+                        .bold()
                     
                     Text(meallist.countryName)
+                        .bold()
+                    
+                    Image(systemName: "globe")
+                        .foregroundColor(.blue)
                     
                 }
                 .padding(.top, 10)
                 .font(.title3)
-                .bold()
                 
-                Text("Category: \(meallist.category.uppercased())")
-                    .font(.headline)
-                    .foregroundColor(mealCategoryColor(for: meallist.category))
-                    .padding(.top, 5)
+                HStack {
+                    Text("Category: \(meallist.category.uppercased())")
+                        .font(.headline)
+                        .foregroundColor(mealCategoryColor(for: meallist.category))
+                        .padding(.top, 5)
+                    
+                    Text("Rating: \(String(format: "%.2f", meallist.rating))")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .padding(.top, 5)
+                }
                 
-                Text("Rating: \(String(format: "%.2f", meallist.rating))")
-                    .font(.subheadline)
-                    .foregroundColor(.blue)
-                    .padding(.top, 5)
-                
-                Text("\(Text("Description:").bold()) \(meallist.description)")
-                    .font(.subheadline)
+                VStack {
+                    HStack {
+                        Text("Description : ")
+                            .bold()
+                        
+                        Image(systemName: "book.pages")
+                            .foregroundColor(.blue)
+                    }
+                    .font(.title3)
                     .padding(.top, 20)
-                
-                Text("\(Text("Nutrients:").bold()) \n Protien: \(meallist.protein), Carbohydrates: \(meallist.carbohydrates), Fat: \(meallist.fat), Fiber: \(meallist.fiber), Calcium: \(meallist.calcium), Iron: \(meallist.iron)")
-                    .font(.subheadline)
+                    
+                    Text(meallist.description)
+                        .font(.subheadline)
+                        .padding(.top, 5)
+                    
+                    HStack {
+                        Text("Nutrients : ")
+                            .bold()
+                        
+                        Image(systemName: "dumbbell")
+                            .foregroundColor(.blue)
+                    }
+                    .font(.title3)
                     .padding(.top, 20)
-                
-                Text("\(Text("Cooking Items:").bold()) \(meallist.cooking_items)")
+                    
+                    HStack {
+                                                
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("Protein: \(meallist.protein)")
+                            
+                            Text("Carbohydrates: \(meallist.carbohydrates)")
+                            
+                            Text("Calcium: \(meallist.calcium)")
+                        }
+                                                
+                        VStack(alignment: .trailing, spacing: 5) {
+                            Text("Fiber: \(meallist.fiber)")
+                            
+                            Text("Fat: \(meallist.fat)")
+                            
+                            Text("Iron: \(meallist.iron)")
+                        }
+                                                
+                    }
+                    .padding(.top, 5)
                     .font(.subheadline)
+                    .bold()
+                    
+                    HStack {
+                        Text("Cooking Items : ")
+                            .bold()
+                            
+                        Image(systemName: "fork.knife.circle")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 22))
+                    }
+                    .font(.title3)
                     .padding(.top, 20)
+                                            
+                    Text(meallist.cooking_items)
+                        .font(.subheadline)
+                        .padding(.top, 5)
+                    
+                    HStack {
+                        Text("Duration : ")
+                            .bold()
+                        
+                        Text(meallist.duration)
+                            .bold()
+                            
+                        Image(systemName: "hourglass.circle")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 22))
+                    }
+                    .font(.title3)
+                    .padding(.top, 20)
+                    
+                    HStack {
+                        Text("How To Cook : ")
+                            .bold()
+                            
+                        Image(systemName: "frying.pan")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 22))
+                    }
+                    .font(.title3)
+                    .padding(.top, 20)
+                    
+                    Text(meallist.how_to_cook)
+                        .font(.subheadline)
+                        .padding(.top, 5)
+                }
+                .padding(.top, 20)
+                .frame(maxWidth: 260, maxHeight: 900)
+                .padding()
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.white, lineWidth: 5)
+                                .shadow(radius: 7)
+                                .padding(.top, 20)
+                                .padding(.bottom, -20)
+                        )
+                )
                 
-                Text("\(Text("Duration:").bold()) \(meallist.duration)")
-                    .font(.subheadline)
-                    .padding(.top, 5)
+                Spacer()
+                    .padding(.vertical, 40)
                 
-                Text("\(Text("How To Cook:").bold()) \(meallist.how_to_cook)")
-                    .font(.subheadline)
-                    .padding(.top, 5)
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
         }
     }
 }
