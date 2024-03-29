@@ -14,7 +14,9 @@ struct ContentView: View {
         NavigationView {
             VStack(alignment: .center) {
                 // Life Pulse Logo
-                CircleView(image: Image("Spiderman"), width: 300, height: 300)
+                CircleView(image: Image("WeCare_Logo"), width: 300, height: 300)
+                    .background(Color.white)
+                    .cornerRadius(500)
                     .padding(.top, 50)
                     .scaleEffect(isAnimated ? 1 : 0)
                     .onAppear {

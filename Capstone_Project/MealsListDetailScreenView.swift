@@ -36,11 +36,11 @@ struct MealsListDetailScreenView: View {
                 
                 meallist.image
                     .resizable()
-                    .frame(width: 250, height: 250)
-                    .scaledToFill()
+                    .frame(width: 300, height: 300)
+                    .scaledToFit()
                     .clipShape(Circle())
                     .overlay {
-                        Circle().stroke(.white, lineWidth: 4.5)
+                        Circle().stroke(.white, lineWidth: 6)
                     }
                     .shadow(radius: 10)
                 

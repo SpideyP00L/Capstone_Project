@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "acai_bowl.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "acai_bowl 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "acai_bowl 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

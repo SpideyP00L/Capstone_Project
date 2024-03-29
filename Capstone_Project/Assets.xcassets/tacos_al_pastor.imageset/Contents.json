@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "tacos_al_pastor.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "tacos_al_pastor 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "tacos_al_pastor 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

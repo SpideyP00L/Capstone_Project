@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "vegetable_gyoza.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "vegetable_gyoza 1.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "vegetable_gyoza 2.jpeg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
