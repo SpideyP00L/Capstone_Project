@@ -56,7 +56,7 @@ struct ContentView: View {
                     .animation(Animation.easeInOut(duration: 0.8).delay(1.5), value: isAnimated)
 
                 // Add NavigationLink to BMIScreenView
-                NavigationLink(destination: BMIScreenView()) {
+                NavigationLink(destination: UserLoginScreen().navigationBarHidden(true)) {
                     Text("Next")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)

@@ -98,34 +98,138 @@ struct HomeScreenView: View {
             ]
         }
     }
-
+    
+    var bloodPressureColor: Color {
+        let bloodPressure = sharedHeartData.bloodPressureValue
+        if bloodPressure > 140 {
+            return .red
+        } else if bloodPressure < 90 {
+            return .red
+        } else if (bloodPressure > 90 && bloodPressure < 100) {
+            return .yellow
+        } else if (bloodPressure > 130 && bloodPressure < 140) {
+            return .yellow
+        }
+        else {
+            return .green
+        }
+    }
+    
+    var bloodPressureText: String {
+        let bloodPressure = sharedHeartData.bloodPressureValue
+        if bloodPressure > 140 {
+            return "Very High"
+        } else if bloodPressure < 90 {
+            return "Very Low"
+        } else if (bloodPressure > 90 && bloodPressure < 100) {
+            return "Low"
+        } else if (bloodPressure > 130 && bloodPressure < 140) {
+            return "High"
+        }
+        else {
+            return "Normal"
+        }
+    }
+    
+    var heartRateColor: Color {
+        let heartRate = sharedHeartData.heartRateValue
+        if heartRate > 100 {
+            return .red
+        } else if heartRate < 60 {
+            return .red
+        } else if (heartRate > 90 && heartRate < 100) {
+            return .yellow
+        } else if (heartRate > 50 && heartRate < 60) {
+            return .yellow
+        } else {
+            return .green
+        }
+    }
+    
+    var heartRateText: String {
+        let heartRate = sharedHeartData.heartRateValue
+        if heartRate > 100 {
+            return "Very High"
+        } else if heartRate < 60 {
+            return "Very Low"
+        } else if (heartRate > 90 && heartRate < 100) {
+            return "High"
+        } else if (heartRate > 50 && heartRate < 60) {
+            return "High"
+        } else {
+            return "Normal"
+        }
+    }
+    
+    var cholestrolLevelColor: Color {
+        let cholestrolLevel = sharedHeartData.cholestrolLevelValue
+        if cholestrolLevel > 200 {
+            return .red
+        } else if cholestrolLevel < 100 {
+            return .red
+        } else if (cholestrolLevel > 180 && cholestrolLevel < 200){
+            return .yellow
+        }  else if (cholestrolLevel > 80 && cholestrolLevel < 100){
+            return .yellow
+        } else {
+            return .green
+        }
+    }
+    
+    var cholestrolLevelText: String {
+        let cholestrolLevel = sharedHeartData.cholestrolLevelValue
+        if cholestrolLevel > 200 {
+            return "Very High"
+        } else if cholestrolLevel < 100 {
+            return "Very Low"
+        } else if (cholestrolLevel > 180 && cholestrolLevel < 200){
+            return "High"
+        }  else if (cholestrolLevel > 80 && cholestrolLevel < 100){
+            return "Low"
+        } else {
+            return "Normal"
+        }
+    }
+    
+    var sugarLevelColor: Color {
+        let sugarLevel = sharedHeartData.bloodSugarLevelValue
+        if sugarLevel > 140 {
+            return .red
+        } else if sugarLevel < 70 {
+            return .red
+        } else if (sugarLevel > 130 && sugarLevel < 140){
+            return .yellow
+        }  else if (sugarLevel > 60 && sugarLevel < 70){
+            return .yellow
+        } else {
+            return .green
+        }
+    }
+    
+    var sugarLevelText: String {
+        let sugarLevel = sharedHeartData.bloodSugarLevelValue
+        if sugarLevel > 140 {
+            return "Very High"
+        } else if sugarLevel < 70 {
+            return "Very Low"
+        } else if (sugarLevel > 130 && sugarLevel < 140){
+            return "High"
+        }  else if (sugarLevel > 60 && sugarLevel < 70){
+            return "Low"
+        } else {
+            return "Normal"
+        }
+    }
 
     var body: some View {
         ScrollView {
             VStack {
-                HStack { // Hstack for Profile Image and Welcome Message with name
-                    Spacer()
-                    
-                    NavigationLink(destination: ProfileScreenView()) { // Navigation link to Profile Screen
-                        Image("Spiderman") // Profile Image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 75, height: 75)
-                            .clipShape(Circle())
-                            .overlay {
-                                Circle().stroke(.white, lineWidth: 2)
-                            }
-                            .shadow(radius: 10)
-                            .opacity(isAnimated ? 1.0 : 0.0)
-                            .transition(.opacity)
-                            .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
-                    }
-                    
-                    Spacer()
-                    
+                HStack { // Welcome Message
                     // Welcome Message with Name text
-                    Text("Welcome, Spidey")
+                    Text("Welcome Back")
+                        .padding(.horizontal)
                         .font(.custom("Rockwell", size: 26))
+                        .multilineTextAlignment(.leading)
                         .opacity(isAnimated ? 1.0 : 0.0)
                         .transition(.opacity)
                         .animation(Animation.easeInOut(duration: 0.8).delay(0.5), value: isAnimated)
@@ -134,6 +238,7 @@ struct HomeScreenView: View {
                 }
                 // Styling for Hstack
                 .padding(.horizontal)
+                .padding(.top)
                 
                 // Custom Bar Styling
                 Rectangle()
@@ -376,8 +481,159 @@ struct HomeScreenView: View {
                         .transition(.opacity)
                         .animation(Animation.easeInOut(duration: 0.8).delay(3.5), value: isAnimated)
                 )
-                
                 .padding(.bottom, 80)
+                
+                // Heart Condition Text
+                Text("Current Heart Condition")
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .font(.custom("Rockwell", size: 22))
+                    .foregroundColor(Color(hex: "0000FF"))
+                    .opacity(isAnimated ? 1.0 : 0.0)
+                    .transition(.opacity)
+                    .animation(Animation.easeInOut(duration: 0.8).delay(4.0), value: isAnimated)
+                
+                // Vstack For Heart Condition and Container Styling
+                VStack {
+                    
+                    HStack {
+                        Text("Heart Monitor")
+                            .font(.custom("Rockwell", size: 20))
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        Text("Value")
+                            .font(.custom("Rockwell", size: 20))
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing)
+                    }
+                    .padding(.top)
+                    .padding(.bottom)
+                    
+                    HStack {
+                        Text("\(Text(bloodPressureText).foregroundColor(bloodPressureColor)) Blood Pressure")
+                            .font(.custom("Rockwell", size: 18))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        Text("\(Int(sharedHeartData.bloodPressureValue))")
+                            .foregroundColor(bloodPressureColor)
+                            .font(.custom("Rockwell", size: 18))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing)
+                        
+                    }
+                    .padding(.top)
+                    
+                    HStack {
+                        Text("\(Text(heartRateText).foregroundColor(heartRateColor)) Heart Rate")
+                            .font(.custom("Rockwell", size: 18))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        Text("\(Int(sharedHeartData.heartRateValue))")
+                            .foregroundColor(heartRateColor)
+                            .font(.custom("Rockwell", size: 18))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing)
+                        
+                    }
+                    .padding(.top)
+                    
+                    HStack {
+                        Text("\(Text(cholestrolLevelText).foregroundColor(cholestrolLevelColor)) Cholestrol Level")
+                            .font(.custom("Rockwell", size: 18))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        Text("\(Int(sharedHeartData.cholestrolLevelValue))")
+                            .foregroundColor(cholestrolLevelColor)
+                            .font(.custom("Rockwell", size: 18))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing)
+                        
+                    }
+                    .padding(.top)
+                    
+                    HStack {
+                        Text("\(Text(sugarLevelText).foregroundColor(sugarLevelColor)) Blood-Sugar Level")
+                            .font(.custom("Rockwell", size: 18))
+                            .foregroundColor(.black)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading)
+                        
+                        Spacer()
+                        
+                        Text("\(Int(sharedHeartData.bloodSugarLevelValue))")
+                            .foregroundColor(sugarLevelColor)
+                            .font(.custom("Rockwell", size: 18))
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.trailing)
+                            .padding(.trailing)
+                        
+                    }
+                    .padding(.top)
+                    
+                }
+                
+                // Custom Styling for the Goal Container
+                .padding(.top, 20)
+                .frame(maxWidth: 260, maxHeight: 600)
+                .padding()
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                .opacity(isAnimated ? 1.0 : 0.0)
+                .transition(.opacity)
+                .animation(Animation.easeInOut(duration: 0.8).delay(4.5), value: isAnimated)
+                .background(
+                    RoundedRectangle(cornerRadius: 30)
+                        .foregroundColor(.white)
+                        .padding(.top, 20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.white, lineWidth: 5)
+                                .shadow(radius: 7)
+                                .padding(.top, 20)
+                                .padding(.bottom, -20)
+                        )
+                        .opacity(isAnimated ? 1.0 : 0.0)
+                        .transition(.opacity)
+                        .animation(Animation.easeInOut(duration: 0.8).delay(4.5), value: isAnimated)
+                )
+                .padding(.bottom, 80)
+                
+                NavigationLink(destination: ContentView().navigationBarHidden(true)) {
+                    Text("Log Out")
+                }
+                .fontWeight(.black)
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 50)
+                .padding()
+                .background(Color.red)
+                .cornerRadius(50)
+                .padding(.top, 20)
+                .scaleEffect(isAnimated ? 1.0 : 0.0)
+                .opacity(isAnimated ? 1.0 : 0.0)
+                .animation(Animation.easeInOut(duration: 0.8).delay(5.0), value: isAnimated)
                 
                 .onAppear {
                     isAnimated = true

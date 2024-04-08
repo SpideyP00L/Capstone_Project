@@ -215,7 +215,7 @@ struct BMIScreenView: View {
                 )
                 
                 // NavigationLink to HomeScreenView
-                NavigationLink(destination: TabScreenBar(sharedData: sharedData)) {
+                NavigationLink(destination: TabScreenBar(sharedData: sharedData).navigationBarHidden(true)) {
                     Text("Calculate")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
